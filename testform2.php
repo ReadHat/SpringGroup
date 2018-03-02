@@ -11,6 +11,7 @@ print $page->getTopSection();
 print "<header class='nav'>";
 print "<h1>Book Results</h1>\n";
 print "<ul>";
+print "<li><a href='HomePage' title='Home Page'>Home Page</a></li>";
 print "<li><a href='AboutUs.php' title='About Us'>About US</a></li>";
 print "<li><a href='ContactUs.php' title='Contact Us'>Contact Us</a></li>";
 print "</ul>";
