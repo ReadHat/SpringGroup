@@ -22,6 +22,6 @@ accidentally adding it with a "git add ." command.
 - add code to populate html results
 - add code to interface with db credentials (remember: do NOT track the credentials file)
 
-## Note:
+### Note:
 
 The notebook with the hard-copy of this list is currently missing, so this list may not be complete.
