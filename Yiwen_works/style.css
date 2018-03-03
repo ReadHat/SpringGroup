@@ -1,0 +1,173 @@
+body {
+	background-image: url("gym4.jpg");
+	background-size: 100%;
+	background-position:fixed;
+}
+header h1 {
+	margin-bottom: 25px;
+	text-align: center;
+	width: auto;
+	padding: 1rem;
+	color:white;
+	Font-size: 45px;
+}
+h1 {
+	color: white;
+}
+.location {
+	float: right;
+	height: auto;
+	width: 250px;
+	margin-right: 2%;
+	color: #FFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 17px;
+	margin-top: 60px;
+}
+#txtSearch {
+	margin-left: 0%;
+	padding-bottom: 7px;
+	padding-top: 7px;
+}
+.nav ul {
+	line-height:40px;
+	text-align:center;
+	background-color: red;
+	}
+.nav li {
+	display:inline; 
+	list-style-type:none;
+	}
+.nav a {
+	text-decoration:none; 
+	padding: 20px;
+	color: white;
+	}
+.nav a:hover {
+	color:#CCC;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	transition: 0.5s;
+	}
+.nav {
+	height: auto;
+	width: 100%;
+	clear: both;
+	float: none;
+	font-style: normal;
+	font-weight: bold;
+	position:absolute;
+	top:0;
+	right: 0;
+	left: 0;
+}
+.a {
+	margin-left:10px;
+	padding:10px;
+}
+ul .b{
+	
+	margin-bottom:10px;
+}
+.c {
+	margin-left:20%;
+	Font-size:200%;
+}
+.d {
+	margin-left:80%;
+	width:15%;
+	height:35px;
+}
+.e {
+	margin-left:3%;
+	height: 5%;
+	width: 50%;
+	color:white;
+	font-size:350%;
+}
+.f {
+	margin-top:15%;
+	text-align: center;
+	height: 5%;
+	width: 45%;
+	color:white;
+	font-size:150%;
+}
+.g {
+	width:16%;
+	margin-top:3%;
+	margin-left:5%;
+	color:white;
+	font-size:200%;
+	background:red;
+}
+.h{
+	font-size:150%;
+	color:white;
+	margin-left:10%;
+	margin-bottom:5%;
+}
+.i{
+	width:10%;
+	margin-top:3%;
+	margin-left:5%;
+	color:white;
+	font-size:200%;
+	background:red;
+}
+.j{
+	width:7%;
+	margin-top:3%;
+	margin-left:5%;
+	color:white;
+	font-size:200%;
+	background:red;
+}
+fieldset {
+	Background: darkred;
+	margin: 25px;
+	margin-top:-35%;
+	margin-left: 45%;
+	margin-right: 5%;
+	padding: 6px;
+	border:15px groove #F2F2F2;
+	color:white;
+	box-shadow: 0 8px 16px 0 red, 0 12px 40px 0 red;
+}
+.fieldset1 {
+	margin:10px;
+	padding: 1px;
+	Color:white;
+}
+label {
+	padding: 2px;
+}
+legend {
+	margin: 5px;
+	text-align:left;
+	margin-left:0px;
+}
+footer p {
+	line-height:30px;
+	display:inline; 
+	text-align: center; 
+	padding: 10px;
+}
+footer {
+	position: fixed;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 11px;
+  z-index: -2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding:0;
+  width: 100%;
+  margin-left: 30%;
+  color:white;
+}
+img {
+	height: 15px;
+	width: 15px;
+	margin-right: 5px;
+}
