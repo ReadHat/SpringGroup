@@ -9,6 +9,7 @@ There is a file included called "db-creds-TEMPLATE.json". Make a copy of this fi
 accidentally adding it with a "git add ." command.
 
 **NOTE:** I've updated the gitignore pattern, so as long as you keep your file named "db-creds.json", it should be safe to put it in any directory.
+**NOTE:** I have also added testDBclass.php to gitignore, so you may also keep that file locally as a reference and it will not track.
 
 ## Backlog:
 
