@@ -12,6 +12,11 @@ accidentally adding it with a "git add ." command.
 
 **NOTE:** I have also added testDBclass.php to gitignore, so you may also keep that file locally as a reference and it will not track.
 
+### Keeping current:
+
+It is probably a good idea to make sure you are keeping an eye on the github repo and pulling changes to the master branch down as often as possible to make 
+merge conflicts during pushing less likely.
+
 ## Backlog:
 
 - improve directory structure
