@@ -20,12 +20,11 @@ merge conflicts during pushing less likely.
 ## Backlog:
 
 - improve directory structure
-- add book search results page
+- add book search page
 - move contact results page to book search results page
 - make search page search across all book info fields (title, author, isbn)
 - add code to capture contact form data and store in database
-- add code to populate html results
-- add code to interface with db credentials (remember: do NOT track the credentials file)
+- add code to populate results html page
 
 ### Note:
 
