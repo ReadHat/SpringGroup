@@ -17,6 +17,9 @@ accidentally adding it with a "git add ." command.
 It is probably a good idea to make sure you are keeping an eye on the github repo and pulling changes to the master branch down as often as possible to make 
 merge conflicts during pushing less likely.
 
+**IMPORTANT NOTE:** You should always do a git pull from the remote repo first **BEFORE** pushing. This way, you can resolve merge conflicts locally and don't 
+end up making the github repo dirty.
+
 ## Backlog:
 
 - improve directory structure
