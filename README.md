@@ -8,9 +8,11 @@ There is a file included called "db-creds-TEMPLATE.json". Make a copy of this fi
 **DO NOT ADD THEM TO THE TEMPLATE FILE!** If you do this exactly right, the ".gitignore" file will keep git from tracking it, so you don't have to worry about 
 accidentally adding it with a "git add ." command.
 
-**NOTE:** I've updated the gitignore pattern, so as long as you keep your file named "db-creds.json", it should be safe to put it in any directory.
+This is all you have to do. const.php is configured to pull in your db-creds as long as the db-creds.json file is in the same directory.
 
-**NOTE:** I have also added testDBclass.php to gitignore, so you may also keep that file locally as a reference and it will not track.
+**NOTE:** The gitignore pattern as been updated, so as long as you keep your file named "db-creds.json", it should be safe to put it in any directory.
+
+**NOTE:** The testDBclass.php has also been added to gitignore, so you may also keep that file locally as a reference and it will not track.
 
 ### Keeping current:
 
