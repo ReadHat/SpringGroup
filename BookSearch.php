@@ -10,6 +10,8 @@
 
 require_once("DB.class.php");
 
+define('RESULT_MAX', '5');
+
 function searchBooks($search_string = null)
 {
 	// set up new database connection
@@ -44,6 +46,8 @@ function searchBooks($search_string = null)
 	$search_string = $db_con->dbEsc($search_string);
 
 	// Check 1: exact match
+	// TODO: return more than just one result
+	//+(do top five alike for other two checks)
 	$query_result = $db_con->dbCall("SELECT * FROM bookinfo_map WHERE entry = '{$search_string}';");
 	if(!$query_result) {
 		throw new Exception('query error');
@@ -51,13 +55,29 @@ function searchBooks($search_string = null)
 
 	if($query_result->num_rows > 0) {
 		$query_result = $db_con->dbCall("SELECT * FROM bookinfo" .
-			"WHERE {$query_result->fetch_array['type']} = '{$search_string}';"
+			"WHERE {$query_result->fetch_array()['type']} = '{$search_string}';"
 		);
+
+		// Breakout and return HERE
+		// TODO: move this to better location
+		$return = [];
+
+		for($i = 0; $i < RESULT_MAX; ++$i) {
+			$return[$i] = $query_result->fetch_array();
+
+			// get next link in list
+			$query_result = $query_result->fetch_field;
+		}
+
+		return $return;
+		// end of breakout
 	}
 
-	// Check 2: if string is probably an ISBN
+	// Check 2: if string is probably an attempted ISBN
 	if(preg_match('/^[^a-z]/i', $search_string) == 1) {
-		
+		$query_result = $db_con->dbCall("SELECT * FROM
+
+		);
 	}
 
 	// Check 3: none (best guess)
