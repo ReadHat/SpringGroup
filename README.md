@@ -30,6 +30,7 @@ end up making the github repo dirty.
 - make search page search across all book info fields (title, author, isbn)
 - add code to capture contact form data and store in database
 - add code to populate results html page
+- if code is requested for inserting bookinfo, write code for populating mapping table
 
 ### Note:
 
