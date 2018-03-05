@@ -17,10 +17,14 @@ function searchBooks()
 	$db_con = new DB();
 	
 	// keep a log of how searching goes
-	$log = [];
+	$log = [] ;
+
+	// event log members
+	// (makes changes potentially easier if needed)
+	//$general_error = 'general_error';
 
 	if(!$db_con->getConnStatus()) {
-		
+		throw new Exception('connection error');
 	}
 	
 }
