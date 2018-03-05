@@ -20,19 +20,30 @@
 	$db_con->dbCall("CREATE TABLE bookinfo_map\n" .
 					"(lex_val int primary key not null,\n" .
 					"entry varchar(100) not null,\n".
-					"type varchar(20) );"
+					"type varchar(20) not null);"
 	);
 
 	// Check "bookinfo" table; populate mapping table
 	// TODO: maybe I should create a while loop instead
-	for($i = 0;
+	while(true) {
 		$query_result = $db_con->dbCall("SELECT * FROM bookinfo LIMIT {$i},1;");
-		++$i) {
-			// Calculate lexicographical value
-			$string = 
 
-			$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
-							"$db_con->"
-			);
+		// if null or false
+		if(!$query_result) {
+			break;
+		}
+
+		// Calculate lexicographical values
+		$strings = $query_result->fetch_array();
+
+		$title_str	= $strings['booktitle'];
+		$isbn_str	= $strings['isbn'];
+		$author_str	= $strings['author'];
+
+		// calculate lex_val
+
+		$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
+						""
+		);
 	}
 ?>
