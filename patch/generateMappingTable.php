@@ -24,5 +24,15 @@
 	);
 
 	// Check "bookinfo" table; populate mapping table
-	
+	// TODO: maybe I should create a while loop instead
+	for($i = 0;
+		$query_result = $db_con->dbCall("SELECT * FROM bookinfo LIMIT {$i},1;");
+		++$i) {
+			// Calculate lexicographical value
+			$string = 
+
+			$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
+							"$db_con->"
+			);
+	}
 ?>

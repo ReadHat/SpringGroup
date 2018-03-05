@@ -10,6 +10,7 @@
 
 require_once("DB.class.php");
 
+// maximum fields to return
 define('RESULT_MAX', '5');
 
 function searchBooks($search_string = null)
@@ -26,7 +27,7 @@ function searchBooks($search_string = null)
 	//$general_error = 'general_error';
 
 /*------------------------------------------------------
---             check important stuff                  --
+--               check important stuff                --
 ------------------------------------------------------*/
 
     if($search_string == null) {
