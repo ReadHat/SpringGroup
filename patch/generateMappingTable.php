@@ -40,10 +40,29 @@
 		$isbn_str	= $strings['isbn'];
 		$author_str	= $strings['author'];
 
-		// calculate lex_val
+		$title_lex = 0;
+		for($i = 0; $i < strlen($title_str); ++$i) {
+    	    $title_lex <<= 8;
+	        $title_lex += ord($title_str[$i]);
+		}
+
+		$isbn_lex = 0;
+		for($i = 0; $i < strlen($isbn_str); ++$i) {
+            $isbn_lex <<= 8;
+            $isbn_lex += ord($isbn_str[$i]);
+		}
+
+        $author_lex = 0;
+        for($i = 0; $i < strlen($author_str); ++$i) {
+            $author_lex <<= 8;
+            $author_lex += ord($author_str[$i]);
+        }
 
 		$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
+						(string)$title_lex	. ",\n" .
 						""
+						(string)$author_lex	. ",\n" .
+						");"
 		);
 	}
 ?>
