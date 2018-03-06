@@ -23,7 +23,7 @@ print "</header>";
 #if (isset($_POST['name'])) {
 #	print "<h1>Thank you for contacting us, someone will get back to you soon</h1>";
 #}
-
+# do we use isset here frist?
 #CHECKING DATABASE STATUS
 if (!$db->getConnStatus()){
 	print "<h1>An error has occurred while trying connect to database!</h1>\n";
