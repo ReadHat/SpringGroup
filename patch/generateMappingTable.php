@@ -26,7 +26,8 @@
 	);
 
 	// Check "bookinfo" table; populate mapping table
-	// TODO: maybe I should create a while loop instead
+	// (this is a for-loop at heart)
+	$i = 0;
 	while(true) {
 		$query_result = $db_con->dbCall("SELECT * FROM bookinfo LIMIT {$i},1;");
 
@@ -35,12 +36,16 @@
 			break;
 		}
 
+		//DEBUG
+		/*var_dump($query_result);
+		exit;*/
+
 		//====================================
 		//= Calculate lexicographical values =
 		//====================================
-		$strings = $query_result->fetch_array();
+		$strings = $query_result[0];
 
-		$title_str	= $strings['title'];
+		$title_str	= $strings['booktitle'];
 		$isbn_str	= $strings['isbn'];
 		$author_str	= $strings['author'];
 
@@ -55,7 +60,7 @@
 		$isbn_lex = lex_val($isbn_str);
 
 		// author lex_val
-       	$author_lex = lex_val($author_str);
+		$author_lex = lex_val($author_str);
 
 		//====================================
 		//= Insert lex_val, string, and type =
@@ -65,7 +70,7 @@
 		$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
 							"'{$title_lex}',\n" .
 							"'{$title_str}',\n" .
-							"'title'\n"
+							"'title'\n" .
 						");"
 		);
 
@@ -73,16 +78,18 @@
 		$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
 						"'{$isbn_lex}',\n" .
 						"'{$isbn_str}',\n" .
-						"'isbn'\n"
+						"'isbn'\n" .
 						");"
 		);
 
 		// author
 		$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
-						"'{$author_lex}',\n'" .
+						"'{$author_lex}',\n" .
 						"'{$author_str}',\n" .
 						"'author'\n" .
 						");"
 		);
-	}
+
+		++$i;
+	}// end of while loop (that is really a for loop)
 ?>

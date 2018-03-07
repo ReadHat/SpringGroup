@@ -2,7 +2,7 @@
 
 $my_file = [];
 
-$my_file = file("db-creds.json");
+$my_file = file("../db-creds.json");
 
 $creds = json_decode($my_file[0]);
 
