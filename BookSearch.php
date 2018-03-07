@@ -9,6 +9,7 @@
 ----------------------------------------------------*/
 
 require_once("DB.class.php");
+require_once("tools.php");
 
 // maximum fields to return
 define('RESULT_MAX', '5');
@@ -49,14 +50,14 @@ function searchBooks($search_string = null)
 	// Check 1: exact match
 	// TODO: return more than just one result
 	//+(do top five alike for other two checks)
-	$query_result = $db_con->dbCall("SELECT * FROM bookinfo_map WHERE entry = '{$search_string}';");
-	if(!$query_result) {
+	$map_query_result = $db_con->dbCall("SELECT * FROM bookinfo_map WHERE entry = '{$search_string}';");
+	if(!$map_query_result) {
 		throw new Exception('query error');
 	}
 
-	if($query_result->num_rows > 0) {
-		$query_result = $db_con->dbCall("SELECT * FROM bookinfo" .
-			"WHERE {$query_result->fetch_array()['type']} = '{$search_string}';"
+	if($map_query_result->num_rows > 0) {
+		$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo" .
+			"WHERE {$map_query_result->fetch_array()['type']} = '{$search_string}';"
 		);
 
 		// Breakout and return HERE
@@ -64,10 +65,10 @@ function searchBooks($search_string = null)
 		$return = [];
 
 		for($i = 0; $i < RESULT_MAX; ++$i) {
-			$return[$i] = $query_result->fetch_array();
+			$return[$i] = $book_query_result->fetch_array();
 
 			// get next link in list
-			$query_result = $query_result->fetch_field;
+			$book_query_result = $book_query_result->fetch_field;
 		}
 
 		return $return;
@@ -75,10 +76,11 @@ function searchBooks($search_string = null)
 	}
 
 	// Check 2: if string is probably an attempted ISBN
-	if(preg_match('/^[^a-z]/i', $search_string) == 1) {
-		$query_result = $db_con->dbCall("SELECT * FROM
+	if(preg_match('/^[^a-z]+/i', $search_string) == 1) {
+		$lex_val = lex_val($search_string);
 
-		);
+		$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo" .
+			"WHERE {$query_result->fetch_array()[");
 	}
 
 	// Check 3: none (best guess)
