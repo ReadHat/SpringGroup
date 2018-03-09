@@ -24,7 +24,7 @@ function evalArgs()
 			fi
 
 			#else
-			root_dir=$2
+			root_dir=$(echo $2 | sed 's/\//\\\//g')
 			;;
 		*)
 			echo 'ERROR! invalid option(s)'
@@ -56,7 +56,7 @@ function setPath()
 if [ $# -eq 0 ]
 then
 	setPath
-elif [ $# -gt 1 ]
+elif [ ! $# -lt 3 ]
 then
 	echo 'ERROR! too many arguments'
 	exit 1
