@@ -14,14 +14,6 @@ This is all you have to do. const.php is configured to pull in your db-creds as 
 
 **NOTE:** The testDBclass.php has also been added to gitignore, so you may also keep that file locally as a reference and it will not track.
 
-## Building the project
-
-Step 0: Add your DB credentials (see above).
-
-Step 1: Generate main_include.php and set your environment variables.
-    ./setup.sh
-or
-    ./setup.sh --set-root /path/to/project/directory
 
 ### Keeping current:
 
@@ -30,6 +22,18 @@ merge conflicts during pushing less likely.
 
 **IMPORTANT NOTE:** You should always do a git pull from the remote repo first **BEFORE** pushing. This way, you can resolve merge conflicts locally and don't 
 end up making the github repo dirty.
+
+## Building the project
+
+Step 0: Add your DB credentials (see above).
+
+Step 1: Generate main_include.php and set your environment variables.
+
+    ./setup.sh
+
+or
+
+    ./setup.sh --set-root /path/to/project/directory
 
 ## Backlog:
 
