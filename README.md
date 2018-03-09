@@ -10,9 +10,10 @@ accidentally adding it with a "git add ." command.
 
 This is all you have to do. const.php is configured to pull in your db-creds as long as the db-creds.json file is in the same directory.
 
-**NOTE:** The gitignore pattern as been updated, so as long as you keep your file named "db-creds.json", it should be safe to put it in any directory.
+**NOTE:** The gitignore pattern has been updated, so as long as you keep your file named "db-creds.json", it should be safe to put it in any directory.
 
 **NOTE:** The testDBclass.php has also been added to gitignore, so you may also keep that file locally as a reference and it will not track.
+
 
 ### Keeping current:
 
@@ -21,6 +22,22 @@ merge conflicts during pushing less likely.
 
 **IMPORTANT NOTE:** You should always do a git pull from the remote repo first **BEFORE** pushing. This way, you can resolve merge conflicts locally and don't 
 end up making the github repo dirty.
+
+## Building the project
+
+Step 0: Add your DB credentials (see above).
+
+Step 1: Generate main_include.php and set your environment variables.
+
+    ./setup.sh
+
+or
+
+    ./setup.sh --set-root /path/to/project/directory
+
+Step 2: Run the php patch script to create the mapping table needed for booksearch.php
+
+    php patch/generateMappingTable.php
 
 ## Backlog:
 

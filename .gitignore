@@ -1,2 +1,12 @@
+# For masking database credentials
 *db-creds.json
+
+# For my project partners if they want
+#+to keep testDBclass.php as a reference
+#+but don't want it on the site
+#+(since it serves no function anyway.)
 *testDBclass.php
+
+# This file is not static; the contents
+#+depend on the system
+*main_include.php

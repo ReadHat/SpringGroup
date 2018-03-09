@@ -135,6 +135,12 @@ class DB {
       return $this->_dbConn->affected_rows;
     } else if (preg_match('/^DELETE/i',$sql)) {
       return $this->_dbConn->affected_rows;
+    } else if (preg_match('/^\s*CREATE/i',$sql)) { //<--- added by student
+	//do nothing and breakout
+	return;
+    } else if (preg_match('/^\s*DROP/i',$sql)) { //<--- added by student
+	//do nothing and breakout
+	return;
     } else {
       $returnArray = array();
       switch ($resultType) {
