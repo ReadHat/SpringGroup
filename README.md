@@ -10,7 +10,7 @@ accidentally adding it with a "git add ." command.
 
 This is all you have to do. const.php is configured to pull in your db-creds as long as the db-creds.json file is in the same directory.
 
-**NOTE:** The gitignore pattern as been updated, so as long as you keep your file named "db-creds.json", it should be safe to put it in any directory.
+**NOTE:** The gitignore pattern has been updated, so as long as you keep your file named "db-creds.json", it should be safe to put it in any directory.
 
 **NOTE:** The testDBclass.php has also been added to gitignore, so you may also keep that file locally as a reference and it will not track.
 
