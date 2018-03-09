@@ -35,6 +35,10 @@ or
 
     ./setup.sh --set-root /path/to/project/directory
 
+Step 2: Run the php patch script to create the mapping table needed for booksearch.php
+
+    php patch/generateMappingTable.php
+
 ## Backlog:
 
 - improve directory structure
