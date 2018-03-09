@@ -12,7 +12,6 @@ function lex_val($string){
 	$lex_val = 0;
 
 	for($i = 0; $i < strlen($string); ++$i) {
-		$lex_val <<= 8;
 		$lex_val += ord($string[$i]);
 	}
 
