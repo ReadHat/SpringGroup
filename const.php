@@ -1,8 +1,10 @@
 <?php
 
+require_once("main_include.php");
+
 $my_file = [];
 
-$my_file = file("../db-creds.json");
+$my_file = file("{$PATH_}/db-creds.json");
 
 $creds = json_decode($my_file[0]);
 

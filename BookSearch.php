@@ -86,6 +86,6 @@ function searchBooks($search_string = null)
 	}
 
 	// Check 3: none (best guess)
-}
+}// end of search books
 
 ?>

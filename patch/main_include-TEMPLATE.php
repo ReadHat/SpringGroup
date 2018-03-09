@@ -3,5 +3,5 @@
 -- Main include file for all php scripts --
 -----------------------------------------*/
 
-PATH_ = ""
+	$PATH_ = "";
 ?>

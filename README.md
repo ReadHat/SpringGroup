@@ -14,6 +14,15 @@ This is all you have to do. const.php is configured to pull in your db-creds as 
 
 **NOTE:** The testDBclass.php has also been added to gitignore, so you may also keep that file locally as a reference and it will not track.
 
+## Building the project
+
+Step 0: Add your DB credentials (see above).
+
+Step 1: Generate main_include.php and set your environment variables.
+    ./setup.sh
+or
+    ./setup.sh --set-root /path/to/project/directory
+
 ### Keeping current:
 
 It is probably a good idea to make sure you are keeping an eye on the github repo and pulling changes to the master branch down as often as possible to make 
