@@ -61,7 +61,6 @@ if ($exist == false){
 	print "<h1>Thank you for contacting us, someone will get back to you soon</h1>";
 }else{
 	print "<h1>You already contact us once!</h1>\n";
-	exit;
 }
 
 print "<footer>";
