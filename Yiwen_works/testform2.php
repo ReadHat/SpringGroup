@@ -27,7 +27,6 @@ print "</header>";
 #CHECKING DATABASE STATUS
 if (!$db->getConnStatus()){
 	print "<h1>An error has occurred while trying connect to database!</h1>\n";
-	exit;
 }
 #INSERTTING DATA
 $safe_email = $db->dbEsc($_POST['name']);
@@ -49,10 +48,8 @@ $result = $db->dbCall($query_CHECK);
 $exist = false;
 
 foreach($result as $email){
-	foreach($email as $value){
-		if ($value == $safe_email){
-			$exist = true;
-		}
+	if ($email['EmailAddress'] == $safe_email){
+		$exist = true;
 	}		
 }
 #FINAL RESULTS
