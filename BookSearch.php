@@ -19,7 +19,7 @@ function searchBooks($search_string = null)
 	// set up new database connection
 	// (connections specs in db-creds.json)
 	$db_con = new DB();
-	
+
 	// keep a log of how searching goes
 	$log = [] ;
 

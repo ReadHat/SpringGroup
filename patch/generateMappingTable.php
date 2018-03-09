@@ -20,7 +20,7 @@
 
 	// Create mapping table
 	$db_con->dbCall("CREATE TABLE bookinfo_map\n" .
-					"(lex_val varchar(100) primary key not null,\n" .
+					"(lex_val int(100) primary key not null,\n" .
 					"entry varchar(100) not null,\n".
 					"type varchar(20) not null);"
 	);
@@ -68,7 +68,7 @@
 
 		// book title
 		$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
-							"'{$title_lex}',\n" .
+							"{$title_lex},\n" .
 							"'{$title_str}',\n" .
 							"'title'\n" .
 						");"
@@ -76,7 +76,7 @@
 
 		// isbn
 		$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
-						"'{$isbn_lex}',\n" .
+						"{$isbn_lex},\n" .
 						"'{$isbn_str}',\n" .
 						"'isbn'\n" .
 						");"
@@ -84,7 +84,7 @@
 
 		// author
 		$db_con->dbCall("INSERT INTO bookinfo_map VALUES(\n" .
-						"'{$author_lex}',\n" .
+						"{$author_lex},\n" .
 						"'{$author_str}',\n" .
 						"'author'\n" .
 						");"
