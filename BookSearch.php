@@ -27,6 +27,9 @@ function searchBooks($search_string = null)
 	// (makes changes potentially easier if needed)
 	//$general_error = 'general_error';
 
+	// exception messages
+	$query_error = 'query error';
+
 /*------------------------------------------------------
 --               check important stuff                --
 ------------------------------------------------------*/
@@ -59,6 +62,10 @@ function searchBooks($search_string = null)
 		$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo" .
 			"WHERE {$map_query_result->fetch_array()['type']} = '{$search_string}';"
 		);
+
+		if(!$book_query_result) {
+			throw new Exception('query error');
+		}
 
 		// Breakout and return HERE
 		// TODO: move this to better location
