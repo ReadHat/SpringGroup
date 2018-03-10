@@ -24,7 +24,7 @@ function evalArgs()
 			fi
 
 			#else
-			root_dir=$(echo $2 | sed 's/\//\\\//g')
+			root_dir=$(echo $2 | grep -Poi '.*[^/](?=/*$)' | sed 's/\//\\\//g')
 			;;
 		*)
 			echo 'ERROR! invalid option(s)'
