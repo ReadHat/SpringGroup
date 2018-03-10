@@ -7,11 +7,14 @@
 -- everything for you.                           --
 -------------------------------------------------*/
 
+	// for top-down pathing
+	require_once("../main_include.php");
+
 	// for managing database connections
-	require_once("../DB.class.php");
+	require_once("{$PATH_}/DB.class.php");
 
 	// for calculating lex_val
-	require_once("../tools.php");
+	require_once("{$PATH_}/tools.php");
 
 	$db_con = new DB();
 
