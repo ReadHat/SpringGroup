@@ -75,17 +75,19 @@ function searchBooks($search_string = null)
 		// end of breakout
 	}
 
+
+/*----------------------------------------------------------------------------
 	// Check 2: if string is probably an attempted ISBN
 	if(preg_match('/^[^a-z]+/i', $search_string) == 1) {
 		$lex_val = lex_val($search_string);
 
-		
-
+*/
 		/*$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo_map" .
 			"WHERE 'entry' = '{$lex_val}';");*/
-	}
+/*	}
 
 	// Check 3: none (best guess)
+----------------------------------------------------------------------------*/
 }// end of search books
 
 ?>
