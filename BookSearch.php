@@ -65,71 +65,37 @@ function searchBooks($search_string = null)
 		throw new Exception('query error');
 	}
 
-	// DEBUG
-	print "Map query result:\n";
-	var_dump($map_query_result);
-
-	// DEBUG
-	//print "Search string: {$search_string}\n";
-
-	// DEBUG
-	//print "bookinfo entry types:\n"; foreach($map_query_result as $row){print $row['type'] . "\n";}
-
 	$query_result_size = count($map_query_result);
 
-	if($map_query_result) {
-		$book_query_result = [];
-		$books = [];
-		$book_count = 0;
+	$book_query_result = [];
+	$books = [];
+	$book_count = 0;
 
-		// DEBUG
-		$loop_count = 0;
+	foreach($map_query_result as $book_query) {
+		$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo\n" .
+			"WHERE {$book_query['type']} = '{$search_string}';"
+		);
 
-		foreach($map_query_result as $book_query) {
-			$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo\n" .
-				"WHERE {$book_query['type']} = '{$search_string}';"
-			);
+		// check query
+		if(!$book_query_result) {
+			throw new Exception('query error');
+		}
 
-			// check query
-			if(!$book_query_result) {
-				throw new Exception('query error');
+		$queried_books = count($book_query_result);
+
+		for($i = 0; $i < $queried_books; ++$i, ++$book_count) {
+			if($book_count == RESULT_MAX) {
+				goto book_query_breakout;
 			}
 
-			$queried_books = count($book_query_result);
+			$books[$book_count] = $book_query_result[$i];
+		}
+	}// end of foreach
 
-			for($i = 0; $i < $queried_books; ++$i, ++$book_count) {
-				if($book_count == RESULT_MAX) {
-					goto book_query_breakout;
-				}
+	// breakout point to stop querying
+	book_query_breakout:
 
-				$books[$book_count] = $book_query_result[$i];
-			}
-
-			// DEBUG
-			++$loop_count;
-
-			// DEBUG
-			print "On loop {$loop_count}\n";
-			var_dump($book_query_result);
-		}// end of foreach
-
-		// breakout point to stop querying
-		book_query_breakout:
-
-		// DEBUG
-		print "Loop count: {$loop_count}\n\n";
-
-		// DEBUG
-		print "Bookinfo Query Result: \n";
-		var_dump($book_query_result);
-
-		// DEBUG
-		/*print "Array to be returned:\n";
-		var_dump($books);*/
-
-		return $books;
-		// end of breakout
-	}
+	return $books;
 
 
 /*----------------------------------------------------------------------------
