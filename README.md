@@ -29,8 +29,8 @@ Usage example:
     
     json_decode("{$PATH_}/local/path/to/myfile.json");
 
-Using this variable name prevents the breaking mentioned above, allows your source code to be independent , and decreaces connascence in the event that you 
-have to move your project to a different directory.
+**\*Using this variable name prevents the breaking mentioned above, allows paths in your code to be independent of directory structure outside of your 
+project, and decreaces connascence in the event that you have to move your project to a different directory.\***
 
 ### Keeping current:
 
