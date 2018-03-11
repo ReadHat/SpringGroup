@@ -19,7 +19,8 @@ This is all you have to do. const.php is configured to pull in your db-creds as 
 In order to prevent breakage when including files in another directory that pull in other files, using absolute pathing is the way to go for any scripts being 
 included elsewhere that also have to pull in resources.
 
-A main_include.php file has been included to bind the project directory's absolute path with the variable name "$PATH_".
+A main_include.php file can be generated to bind the project directory's absolute path with the variable name "$PATH_". **(See build section below on how to 
+generate.)**
 
 Usage example:
 
