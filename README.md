@@ -19,16 +19,17 @@ This is all you have to do. const.php is configured to pull in your db-creds as 
 In order to prevent breakage when including files in another directory that pull in other files, using absolute pathing is the way to go for any scripts being 
 included elsewhere that also have to pull in resources.
 
-A main_include.php file has been included to bind the project directory's absolute path with a variable name. Using this variable name prevents the breaking 
-mentioned above, allows your source code to be independent , and decreaces connascence in the event that you have to move 
-your project to a different directory.
+A main_include.php file has been included to bind the project directory's absolute path with the variable name "$PATH_".
 
-To use:
+Usage example:
 
     require_once("/path/to/main_include.php");
     ...
     
-    json_decode("${PATH_}"/path/to/myfile.json);
+    json_decode("{$PATH_}"/path/to/myfile.json);
+
+Using this variable name prevents the breaking mentioned above, allows your source code to be independent , and decreaces connascence in the event that you 
+have to move your project to a different directory.
 
 ### Keeping current:
 

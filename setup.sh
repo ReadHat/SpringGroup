@@ -5,7 +5,6 @@
 ########################################
 
 #NOTE: This does not work with backquotes. Why???
-#ALSO!: escapes are double-encoded here
 root_dir=$(pwd | sed 's/\//\\\//g')
 
 ## evaluates command-line arguments
