@@ -14,6 +14,21 @@ This is all you have to do. const.php is configured to pull in your db-creds as 
 
 **NOTE:** The testDBclass.php has also been added to gitignore, so you may also keep that file locally as a reference and it will not track.
 
+### Using absolute pathing
+
+In order to prevent breakage when including files in another directory that pull in other files, using absolute pathing is the way to go for any scripts being 
+included elsewhere that also have to pull in resources.
+
+A main_include.php file has been included to bind the project directory's absolute path with a variable name. Using this variable name prevents the breaking 
+mentioned above, allows your source code to be independent , and decreaces connascence in the event that you have to move 
+your project to a different directory.
+
+To use:
+
+    require_once("/path/to/main_include.php");
+    ...
+    
+    json_decode("${PATH_}"/path/to/myfile.json);
 
 ### Keeping current:
 
