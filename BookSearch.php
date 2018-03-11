@@ -34,10 +34,12 @@ function searchBooks($search_string = null)
 --               check important stuff                --
 ------------------------------------------------------*/
 
-    if($search_string == null) {
-        throw new Exception('null argument');
-    }
+	// check argument string
+	if($search_string == null) {
+		throw new Exception('null argument');
+	}
 
+	// check database connection
 	if(!$db_con->getConnStatus()) {
 		throw new Exception('connection error');
 	}
@@ -50,35 +52,62 @@ function searchBooks($search_string = null)
 	trim($search_string);
 	$search_string = $db_con->dbEsc($search_string);
 
+	// DEBUG
+	print "Sanatized search string is: {$search_string}\n";
+
 	// Check 1: exact match
 	// TODO: return more than just one result
 	//+(do top five alike for other two checks)
 	$map_query_result = $db_con->dbCall("SELECT * FROM bookinfo_map WHERE entry = '{$search_string}';");
+
+	// check query
 	if(!$map_query_result) {
 		throw new Exception('query error');
 	}
 
-	if($map_query_result->num_rows > 0) {
-		$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo" .
-			"WHERE {$map_query_result->fetch_array()['type']} = '{$search_string}';"
+	// DEBUG
+	print "Map query result:\n";
+	var_dump($map_query_result);
+
+	// DEBUG
+	print "Search string: {$search_string}\n";
+
+	// DEBUG
+	print "bookinfo entry type: {$map_query_result[0]['type']}\n";
+
+	$query_result_size = count($map_query_result);
+
+	if($map_query_result) {
+		$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo\n" .
+			"WHERE {$map_query_result[0]['type']} = '{$search_string}';"
 		);
 
+		// check query
 		if(!$book_query_result) {
 			throw new Exception('query error');
 		}
 
+		// DEBUG
+		print "Bookinfo Query Result: \n";
+		var_dump($book_query_result);
+
 		// Breakout and return HERE
 		// TODO: move this to better location
-		$return = [];
+		$books = [];
 
-		for($i = 0; $i < RESULT_MAX; ++$i) {
-			$return[$i] = $book_query_result->fetch_array();
-
-			// get next link in list
-			$book_query_result = $book_query_result->fetch_field;
+		if($query_result_size > RESULT_MAX) {
+			$query_result_size = RESULT_MAX;
 		}
 
-		return $return;
+		for($i = 0; $i < $query_result_size; ++$i) {
+			$books[$i] = $book_query_result[$i];
+		}
+
+		// DEBUG
+		print "Array to be returned:\n";
+		var_dump($books);
+
+		return $books;
 		// end of breakout
 	}
 
