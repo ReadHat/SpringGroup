@@ -23,7 +23,7 @@ A main_include.php file has been included to bind the project directory's absolu
 
 Usage example:
 
-    require_once("/path/to/main_include.php");
+    require_once("path/to/main_include.php");
     ...
     
     json_decode("{$PATH_}/local/path/to/myfile.json");
