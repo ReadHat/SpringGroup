@@ -78,14 +78,18 @@ function searchBooks($search_string = null)
 	$query_result_size = count($map_query_result);
 
 	if($map_query_result) {
-		$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo\n" .
-			"WHERE {$map_query_result[0]['type']} = '{$search_string}';"
-		);
+		$book_query_result = [];
 
-		// check query
-		if(!$book_query_result) {
-			throw new Exception('query error');
-		}
+		foreach($map_query_result as $book_query) {
+			$book_query_result += $db_con->dbCall("SELECT * FROM bookinfo\n" .
+				"WHERE {$book_query['type']} = '{$search_string}';"
+			);
+
+			// check query
+			if(!$book_query_result) {
+				throw new Exception('query error');
+			}
+		}// end of foreach
 
 		// DEBUG
 		print "Bookinfo Query Result: \n";
