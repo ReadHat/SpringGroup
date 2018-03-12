@@ -23,11 +23,12 @@ A main_include.php file can be generated to bind the project directory's absolut
 generate.)**
 
 Usage example:
+```php
+require_once("path/to/main_include.php");
+...
 
-    require_once("path/to/main_include.php");
-    ...
-    
-    json_decode("{$PATH_}/local/path/to/myfile.json");
+json_decode("{$PATH_}/local/path/to/myfile.json");
+```
 
 **\*Using this variable name prevents the breaking mentioned above, allows paths in your code to be independent of directory structure outside of your 
 project, and decreaces connascence in the event that you have to move your project to a different directory.\***
@@ -46,15 +47,19 @@ Step 0: Add your DB credentials (see above).
 
 Step 1: Generate main_include.php and set your environment variables.
 
-    ./setup.sh
-
+```
+./setup.sh
+```
 or
-
-    ./setup.sh --set-root /path/to/project/directory
+```
+./setup.sh --set-root /path/to/project/directory
+```
 
 Step 2: Run the php patch script to create the mapping table needed for booksearch.php
 
-    cd patch && php generateMappingTable.php
+```
+cd patch && php generateMappingTable.php
+```
 
 ## Backlog:
 
