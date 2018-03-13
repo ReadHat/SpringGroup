@@ -19,8 +19,8 @@ This is all you have to do. const.php is configured to pull in your db-creds as 
 In order to prevent breakage when including files in another directory that pull in other files, using absolute pathing is the way to go for any scripts being 
 included elsewhere that also have to pull in resources.
 
-A main_include.php file can be generated to bind the project directory's absolute path with the variable name "$PATH_". **(See build section below on how to 
-generate.)**
+A main_include.php file can be generated to bind the project directory's absolute path with the variable name "$PATH_". **(See [build 
+section](#building-the-project) below on how to generate.)**
 
 Usage example:
 ```php
@@ -43,7 +43,7 @@ end up making the github repo dirty.
 
 ## Building the project
 
-Step 0: Add your DB credentials (see above).
+Step 0: Add your DB credentials ([see above](#adding-your-db-credentials)).
 
 Step 1: Generate main_include.php and set your environment variables.
 
