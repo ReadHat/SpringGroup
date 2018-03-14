@@ -12,7 +12,7 @@ $page->setBottomSection();
 
 print $page->getTopSection();
 print "<header class='nav'>";
-print "<h1>Book Results</h1>\n";
+print "<h1>Contact Us Results</h1>\n";
 print "<ul>";
 print "<li><a href='HomePage' title='Home Page'>Home Page</a></li>";
 print "<li><a href='AboutUs.php' title='About Us'>About US</a></li>";

@@ -1,7 +1,7 @@
 <?php
 require_once("../Template/Template.php");
 
-$page = new Template("My Page");
+$page = new Template("Book Results");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
 $page->setHeadSection("<script src='../JavaScript/script1.js'></script>");
 $page->setTopSection();
@@ -26,10 +26,10 @@ if (isset($_POST['name']) && isset($_POST['ISBN']) && isset($_POST['author'])){
 
 try {
 require_once("generateMappingTable.php");
-	var_dump($e)
+	var_dump($e);
 	
 } catch (Exception $e){
-	var_dump($e)
+	var_dump($e);
 }
 }
 print "<footer>";

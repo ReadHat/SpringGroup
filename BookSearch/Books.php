@@ -43,7 +43,7 @@ Print "<input type = 'submit' onclick='myFunction()'>";
 Print "</fieldset>";
 Print "</form>";
 Print "<footer>";
-Print "<p>Home Page</p>";
+Print "<p>Book Search</p>";
 Print "<p> | </p>";
 Print "<p> Privacy Policy </p>";
 Print "<p> | </p>";

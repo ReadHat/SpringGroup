@@ -32,7 +32,7 @@ Print "<p class='h'>The guy next to the big guy</p>";
 Print "<p class='g'>Chen, Yiwen</p>";
 Print "<p class='h'>The guy next to the guy, next to the big guy</p>";
 print "<footer>";
-print "<p>Home Page</p>";
+print "<p>About Us</p>";
 print "<p> | </p>";
 print "<p> Privacy Policy </p>";
 print "<p> | </p>";
