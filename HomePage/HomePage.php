@@ -1,6 +1,6 @@
 <?php
 
-require_once("../ResultsPage/Template.php");
+require_once("../Template/Template.php");
 
 $page = new Template("HomePage");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
@@ -18,9 +18,9 @@ print "</div>";
 print "</div>";
 print "<h1>Discover Books</h1>\n";
 print "<ul>";
-print "<li><a href='../AboutUsPage/AboutUs.php' title='About Us'>About US</a></li>";
-print "<li><a href='../ContactUsPage/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
-print "<li><a href='../BookSearchPage/Books.php' title='Book Search'>Book Search</a></li>";
+print "<li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>";
+print "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
+print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
 print "</ul>";
 print "</header>";
 print "<footer>";

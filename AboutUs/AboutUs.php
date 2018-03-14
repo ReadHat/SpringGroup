@@ -1,6 +1,6 @@
 <?php
 
-require_once("../ResultsPage/Template.php");
+require_once("../Template/Template.php");
 
 $page = new Template("AboutUs");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
@@ -19,8 +19,8 @@ print "</div>";
 print "<h1>About Us</h1>";
 print "<ul>";
 Print "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
-print "<li><a href='../ContactUsPage/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
-print "<li><a href='../BookSearchPage/Books.php' title='Book Search'>Book Search</a></li>";
+print "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
+print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
 print "</ul>";
 print "</header>";
 Print "<p class='f'>Thank you for your buissness. All email request will be handled as soon as possible. Expect a reply within 48 to 72 hours normal buissness hours monday through friday.</p>";

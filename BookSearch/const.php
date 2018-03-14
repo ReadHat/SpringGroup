@@ -1,6 +1,6 @@
 <?php
 
-require_once("main_include.php");
+require_once("../main_include.php");
 
 $my_file = [];
 
