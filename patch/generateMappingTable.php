@@ -11,10 +11,10 @@
 	require_once("../main_include.php");
 
 	// for managing database connections
-	require_once("{$PATH_}/DB.class.php");
+	require_once("{$PATH_}/BookSearch/DB.class.php");
 
 	// for calculating lex_val
-	require_once("{$PATH_}/tools.php");
+	require_once("{$PATH_}/BookSearch/tools.php");
 
 	$db_con = new DB();
 

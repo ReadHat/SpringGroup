@@ -30,7 +30,7 @@ Print "<p class='g'>Phone Number:</p>";
 Print "<p class='h'>111-222-3333</p>";
 Print "<p class='j'>Email:</p>";
 Print "<p class='h'>email@email.com///</p>";
-Print "<form method='post' action='../ResultsPage/PrintResults.php'>";
+Print "<form method='post' action='BookResults.php'>";
 Print "<fieldset>";
 Print "<p><label class='b'> Book Title: <input type = 'text' id = 'myText' name = 'name'></label></P>";
 Print "<p><label class='b'> Book ISBN: <input type = 'text'></label></p>";

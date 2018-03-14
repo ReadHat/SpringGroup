@@ -1,12 +1,12 @@
 <?php
-require_once("Template.php");
-require_once("DB.class.php");
+require_once("../Template/Template.php");
+require_once("../BookSearch/DB.class.php");
 
 $db = new DB();
 $page = new Template("My Page");
 
-$page->setHeadSection("<link rel='stylesheet' href='style.css'>");
-$page->setHeadSection("<script src='script1.js'></script>");
+$page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
+$page->setHeadSection("<script src='../JavaScript/script1.js'></script>");
 $page->setTopSection();
 $page->setBottomSection();
 
@@ -17,6 +17,7 @@ print "<ul>";
 print "<li><a href='HomePage' title='Home Page'>Home Page</a></li>";
 print "<li><a href='AboutUs.php' title='About Us'>About US</a></li>";
 print "<li><a href='ContactUs.php' title='Contact Us'>Contact Us</a></li>";
+print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
 print "</ul>";
 print "</header>";
 
@@ -66,6 +67,15 @@ print "<p> | </p>";
 print "<p> Privacy Policy </p>";
 print "<p> | </p>";
 print "<p> Terms of Service </p>";
+print "<a href = 'https://www.facebook.com/'>";
+print "<img src = '../Pictures/facebook.png' alt='facebook'>";
+print "</a>";
+print "<a href = 'https://twitter.com/?lang=en'>";
+print "<img src = '../Pictures/twitter.png' alt='twitter'>";
+print "</a>";
+print "<a href = 'https://www.instagram.com/?hl=en'>";
+print "<img src = '../Pictures/instagram.png' alt='instagram'>";
+print "</a>";
 print "</footer>";
 print $page->getBottomSection();
 ?>
