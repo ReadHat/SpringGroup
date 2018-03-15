@@ -1,5 +1,6 @@
 <?php
 require_once("../Template/Template.php");
+require_once("../BookSearch/BookSearch.php");
 
 $page = new Template("Book Results");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
@@ -18,18 +19,17 @@ print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a>
 print "</ul>";
 print "</header>";
 
-if (isset($_POST['name']) && isset($_POST['ISBN']) && isset($_POST['author'])){
-	//var_dump($_POST['url']);
-	$url = $_POST['name'];
-	$number = $_POST['ISBN'];
-	$address = $_POST['author'];
 
-try {
-require_once("generateMappingTable.php");
-	var_dump($e);
+if (isset($_POST['booksinfo'])){
 	
+try {
+	//var_dump($_POST['url']);
+	$bookinfo = $_POST['bookinfo'];
+	
+	$results = searchBooks("HOBBIT");
+	var_dump($results);
 } catch (Exception $e){
-	var_dump($e);
+	echo "Hello World";
 }
 }
 print "<footer>";

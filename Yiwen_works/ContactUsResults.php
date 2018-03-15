@@ -21,13 +21,16 @@ print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a>
 print "</ul>";
 print "</header>";
 
+
+//var_dump($_POST['Comment']);
+
 #if (isset($_POST['name'])) {
 #	print "<h1>Thank you for contacting us, someone will get back to you soon</h1>";
 #}
 # do we use isset here frist?
 #CHECKING DATABASE STATUS
 if (!$db->getConnStatus()){
-	print "<h1>An error has occurred while trying connect to database!</h1>\n";
+	print "<p class='f'>An error has occurred while trying connect to database!</p>\n";
 }
 #INSERTTING DATA
 $safe_email = $db->dbEsc($_POST['name']);
@@ -56,9 +59,9 @@ foreach($result as $email){
 #FINAL RESULTS
 if ($exist == false){
 	$db->dbCall($query_INSERT); #insert satement
-	print "<h1>Thank you for contacting us, someone will get back to you soon</h1>";
+	print "<p class='f'>Thank you for contacting us, someone will get back to you soon</p>";
 }else{
-	print "<h1>You already contact us once!</h1>\n";
+	print "<p class='f'>You already contact us once!</p>\n";
 }
 
 print "<footer>";
