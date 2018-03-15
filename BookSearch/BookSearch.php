@@ -52,9 +52,6 @@ function searchBooks($search_string = null)
 	trim($search_string);
 	$search_string = $db_con->dbEsc($search_string);
 
-	// DEBUG
-	print "Sanatized search string is: {$search_string}\n";
-
 	// Check 1: exact match
 	// TODO: return more than just one result
 	//+(do top five alike for other two checks)
