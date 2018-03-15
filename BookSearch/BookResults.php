@@ -26,7 +26,7 @@ try {
 	
 	$bookinfo = $_POST['bookinfo'];
 print "<p class='f'>";
-	$results = searchBooks("HOBBIT");
+	$results = searchBooks($bookinfo);
 print "</p>";
 
 
@@ -62,7 +62,7 @@ print "</p>";
 
 	//var_dump($results);
 } catch (Exception $e){
-	echo "Hello World";
+	print "The book was not located";
 }
 }
 print "<footer>";

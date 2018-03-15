@@ -23,6 +23,10 @@ td {
 	color:white;
 	text-align:center;
 }
+div table {
+	background:red;
+	margin:auto;
+}
 .location {
 	float: right;
 	height: auto;
