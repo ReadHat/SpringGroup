@@ -13,6 +13,16 @@ header h1 {
 h1 {
 	color: white;
 }
+th {
+	font-size: 150%;
+	color:white;
+	text-align:center;
+}
+td {
+	font-size: 150%;
+	color:white;
+	text-align:center;
+}
 .location {
 	float: right;
 	height: auto;

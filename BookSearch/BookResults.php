@@ -20,14 +20,47 @@ print "</ul>";
 print "</header>";
 
 
-if (isset($_POST['booksinfo'])){
+if (isset($_POST['bookinfo'])){
 	
 try {
-	//var_dump($_POST['url']);
-	$bookinfo = $_POST['bookinfo'];
 	
+	$bookinfo = $_POST['bookinfo'];
+print "<p class='f'>";
 	$results = searchBooks("HOBBIT");
-	var_dump($results);
+print "</p>";
+
+
+
+?>
+
+<div id="main-table">
+	<table>
+	<tr>
+		<th>ID</th>
+		<th>Insert Time</th>
+		<th>Book Title</th>
+		<th>ISBN</th>
+		<th>Author</th>
+		<th>Status</th>
+	</tr>
+		
+	 <?php
+	 foreach($results as $row){
+		 print "<tr>\n";
+		 foreach ($row as $cell){
+			 print "<td>";
+			 print "$cell";
+			 print  "</td>\n";
+		 }
+		 print "</tr>\n";
+	 }
+	 ?>
+	 
+	 </table>
+</div>
+<?php
+
+	//var_dump($results);
 } catch (Exception $e){
 	echo "Hello World";
 }
