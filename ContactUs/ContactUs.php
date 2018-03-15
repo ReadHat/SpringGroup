@@ -34,7 +34,7 @@ Print "<form method='post' action='../Yiwen_works/ContactUsResults.php'>";
 Print "<fieldset>";
 Print "<p><label class='b'> TO: <input type = 'text' value='email@email.com///'></label></P>";
 Print "<p><label class='b'> Email Address: <input type = 'text' id = 'myText' name = 'name'></label></P>";
-Print "<p><label class='b'> Phone Number: <input type = 'text' name = 'phone'></label></p>";
+Print "<p><label class='b'> Phone Number: <input type = 'text' name = 'Phone'></label></p>";
 Print "<fieldset class='fieldset1'>";
 Print "<legend> Additional Comments:</legend>";
 Print "<label><textarea rows='10' cols='120' id='myText2' name = 'Comment'></textarea></label>";
