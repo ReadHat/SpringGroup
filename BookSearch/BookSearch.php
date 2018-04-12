@@ -8,7 +8,7 @@
 ++ oject-orientation.                               --
 ----------------------------------------------------*/
 
-require_once("DB.class.php");
+require_once("../DB/DB.class.php");
 require_once("tools.php");
 
 // maximum fields to return
