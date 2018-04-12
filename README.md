@@ -1,4 +1,4 @@
-# Sprint Assignment 1
+# Sprint Assignment
 
 ## Important information:
 
