@@ -30,7 +30,7 @@ Print "<p class='g'>Phone Number:</p>";
 Print "<p class='h'>111-222-3333</p>";
 Print "<p class='j'>Email:</p>";
 Print "<p class='h'>email@email.com///</p>";
-Print "<form method='post' action='../Yiwen_works/ContactUsResults.php'>";
+Print "<form method='post' action='ContactUsResults.php'>";
 Print "<fieldset>";
 Print "<p><label class='b'> TO: <input type = 'text' value='email@email.com///'></label></P>";
 Print "<p><label class='b'> Email Address: <input type = 'text' id = 'myText' name = 'name'></label></P>";
