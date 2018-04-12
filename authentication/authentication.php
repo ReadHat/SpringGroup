@@ -1,7 +1,7 @@
 <?php
-require_once("DB.class.php");
+require_once("../DB/DB.class.php");
 require_once("Template.php");
-require_once("const.php");
+require_once("const.php");		// <----- const.php is already included by DB.class.php
 
 #$_SESSION['UsrName'] = $_POST['usr'];
 
