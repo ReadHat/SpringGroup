@@ -11,7 +11,7 @@ merge conflicts during pushing less likely.
 
 ### Adding your DB credentials:
 
-There is a file included called "db-creds_TEMPLATE.php". Make a copy of this file named "db-creds.php" and place it in the DB diredtory. Then add your 
+There is a file included called "db-creds_TEMPLATE.php". Make a copy of this file named "db-creds.php" and place it in the DB directory. Then add your 
 credentials to this new file only. **DO NOT ADD THEM TO THE TEMPLATE FILE!** If you do this exactly right, the ".gitignore" file will keep git from 
 tracking it, so you don't have to worry about accidentally adding it with a "git add ." command.
 
