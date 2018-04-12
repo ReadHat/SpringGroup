@@ -11,9 +11,9 @@ merge conflicts during pushing less likely.
 
 ### Adding your DB credentials:
 
-There is a file included called "db-creds_TEMPLATE.php". Make a copy of this file named "db-creds.php". Then add your credentials to this new file only. 
-**DO NOT ADD THEM TO THE TEMPLATE FILE!** If you do this exactly right, the ".gitignore" file will keep git from tracking it, so you don't have to worry about 
-accidentally adding it with a "git add ." command.
+There is a file included called "db-creds_TEMPLATE.php". Make a copy of this file named "db-creds.php" and place it in the same diredtory. Then add your 
+credentials to this new file only. **DO NOT ADD THEM TO THE TEMPLATE FILE!** If you do this exactly right, the ".gitignore" file will keep git from 
+tracking it, so you don't have to worry about accidentally adding it with a "git add ." command.
 
 This is all you have to do. const.php is configured to pull in your db-creds as long **as the db-creds.php file is in the same directory.**
 
