@@ -9,7 +9,6 @@
 ----------------------------------------------------*/
 
 require_once("../DB/DB.class.php");
-require_once("tools.php");
 
 // maximum fields to return
 define('RESULT_MAX', '10');
