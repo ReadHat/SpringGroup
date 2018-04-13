@@ -40,10 +40,6 @@
 			break;
 		}
 
-		//DEBUG
-		/*var_dump($query_result);
-		exit;*/
-
 		//====================================
 		//= Calculate lexicographical values =
 		//====================================
