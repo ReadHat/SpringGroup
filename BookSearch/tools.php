@@ -6,7 +6,7 @@
 
 //===========================================
 //= Returns lexicographical value of string =
-//+ as a string (since base256 is waybig)   =
+//+ as a string.                            =
 //===========================================
 function lex_val($string){
 	$lex_val = 0;
