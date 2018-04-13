@@ -78,14 +78,13 @@ function searchBooks($search_string = null)
 			throw new Exception('query error');
 		}
 
-		$queried_books = count($book_query_result);
-
-		for($i = 0; $i < $queried_books; ++$i, ++$book_count) {
+		foreach($book_query_result as $book) {
 			if($book_count == RESULT_MAX) {
 				goto book_query_breakout;
 			}
 
-			$books[$book_count] = $book_query_result[$i];
+			$books[$book_count] = $book;
+			++$book_count;
 		}
 	}// end of foreach
 
