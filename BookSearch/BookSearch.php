@@ -52,7 +52,7 @@ function searchBooks($search_string = null)
 
 	// check query
 	if(!$books) {
-		throw new Exception('query error');
+		throw new Exception($query_error);
 	}
 
 	return $books;
