@@ -20,13 +20,6 @@ function searchBooks($search_string = null)
 	// (connections specs in db-creds.json)
 	$db_con = new DB();
 
-	// keep a log of how searching goes
-	$log = [] ;
-
-	// event log members
-	// (makes changes potentially easier if needed)
-	//$general_error = 'general_error';
-
 	// exception messages
 	$query_error = 'query error';
 
@@ -52,60 +45,16 @@ function searchBooks($search_string = null)
 	trim($search_string);
 	$search_string = $db_con->dbEsc($search_string);
 
-	// Check 1: exact match
-	// TODO: return more than just one result
-	//+(do top five alike for other two checks)
-	$map_query_result = $db_con->dbCall("SELECT * FROM bookinfo_map WHERE entry = '{$search_string}';");
+	// query for rows containing $search_string
+	//+as either a book title, author, or isbn
+	$books = $db_con->dbCall("SELECT * FROM bookinfo " .
+		"WHERE booktitle = '{$search_string}' OR isbn = '{$search_string}' OR author = '{$search_string}';");
 
 	// check query
-	if(!$map_query_result) {
+	if(!$books) {
 		throw new Exception('query error');
 	}
 
-	$query_result_size = count($map_query_result);
-
-	$book_query_result = [];
-	$books = [];
-	$book_count = 0;
-
-	foreach($map_query_result as $book_query) {
-		$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo\n" .
-			"WHERE {$book_query['type']} = '{$search_string}';"
-		);
-
-		// check query
-		if(!$book_query_result) {
-			throw new Exception('query error');
-		}
-
-		foreach($book_query_result as $book) {
-			if($book_count == RESULT_MAX) {
-				goto book_query_breakout;
-			}
-
-			$books[$book_count] = $book;
-			++$book_count;
-		}
-	}// end of foreach
-
-	// breakout point to stop querying
-	book_query_breakout:
-
 	return $books;
-
-
-/*----------------------------------------------------------------------------
-	// Check 2: if string is probably an attempted ISBN
-	if(preg_match('/^[^a-z]+/i', $search_string) == 1) {
-		$lex_val = lex_val($search_string);
-
-*/
-		/*$book_query_result = $db_con->dbCall("SELECT * FROM bookinfo_map" .
-			"WHERE 'entry' = '{$lex_val}';");*/
-/*	}
-
-	// Check 3: none (best guess)
-----------------------------------------------------------------------------*/
 }// end of search books
-
 ?>
