@@ -24,37 +24,38 @@ $page->setBottomSection();
 
 print $page->getTopSection();
 
-print "<header class='nav'>";
+print "<br /><header class='nav'>";
 
-print "<h1>Contact Us Results</h1>\n";
+print "<br /><h1>Contact Us Results</h1>";
 
-print "<ul>";
+print "<br /><ul>";
 
-print "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
+print "<br /><li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
 
-print "<li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>";
+print "<br /><li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>";
 
-print "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
+print "<br /><li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
 
-print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
+print "<br /><li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
 
-print "</ul>";
+print "<br /></ul>";
 
-print "</header>";
-
-
+print "<br /></header>";
 
 
+if (
+	!(
+		isset($_POST['name'])    &&
+		isset($_POST['Phone'])   &&
+		isset($_POST['Comment']) &&
+	 )
+) {
 
-//var_dump($_POST['Comment']);
+	print "<br /><h1>ERROR: Not all form feilds are set server-side. Malformed HTTP POST or other error.</h1>";
 
+	goto: print_footer;	// Don't have time to restructure someone elses code right now... TODO: make a function
 
-
-#if (isset($_POST['name'])) {
-
-#	print "<h1>Thank you for contacting us, someone will get back to you soon</h1>";
-
-#}
+}
 
 # do we use isset here frist?
 
@@ -88,79 +89,43 @@ $query_INSERT = "INSERT INTO contactdata (EmailAddress,PhoneNumber,AdditionalCom
 
 				"VALUES ('{$safe_email}', '{$safe_phone}', '{$safe_comment}')";
 
-		 
-
-#CHECKING DATA THAT SHOULD NOT CONTAIN AT DATABASE
-
-
-
-$query_CHECK = "SELECT EmailAddress FROM contactdata";
-
-
-
-$result = $db->dbCall($query_CHECK);
-
-$exist = false;
-
-
-
-foreach($result as $email){
-
-	if ($email['EmailAddress'] == $safe_email){
-
-		$exist = true;
-
-	}		
-
-}
-
 #FINAL RESULTS
 
-if ($exist == false){
+print "<br /><p class='f'>Thank you for contacting us, someone will get back to you soon</p>";
 
-	$db->dbCall($query_INSERT); #insert satement
+print_footer:	// Don't have time to restructure someone elses code right now... TODO: make a function
 
-	print "<p class='f'>Thank you for contacting us, someone will get back to you soon</p>";
+print "<br /><footer>";
 
-}else{
+print "<br /><p>Home Page</p>";
 
-	print "<p class='f'>You already contact us once!</p>\n";
+print "<br /><p> | </p>";
 
-}
+print "<br /><p> Privacy Policy </p>";
 
+print "<br /><p> | </p>";
 
+print "<br /><p> Terms of Service </p>";
 
-print "<footer>";
+print "<br /><a href = 'https://www.facebook.com/'>";
 
-print "<p>Home Page</p>";
+print "<br /><img src = '../Pictures/facebook.png' alt='facebook'>";
 
-print "<p> | </p>";
+print "<br /></a>";
 
-print "<p> Privacy Policy </p>";
+print "<br /><a href = 'https://twitter.com/?lang=en'>";
 
-print "<p> | </p>";
+print "<br /><img src = '../Pictures/twitter.png' alt='twitter'>";
 
-print "<p> Terms of Service </p>";
+print "<br /></a>";
 
-print "<a href = 'https://www.facebook.com/'>";
+print "<br /><a href = 'https://www.instagram.com/?hl=en'>";
 
-print "<img src = '../Pictures/facebook.png' alt='facebook'>";
+print "<br /><img src = '../Pictures/instagram.png' alt='instagram'>";
 
-print "</a>";
+print "<br /></a>";
 
-print "<a href = 'https://twitter.com/?lang=en'>";
-
-print "<img src = '../Pictures/twitter.png' alt='twitter'>";
-
-print "</a>";
-
-print "<a href = 'https://www.instagram.com/?hl=en'>";
-
-print "<img src = '../Pictures/instagram.png' alt='instagram'>";
-
-print "</a>";
-
-print "</footer>";
+print "<br /></footer>";
 
 print $page->getBottomSection();
 
