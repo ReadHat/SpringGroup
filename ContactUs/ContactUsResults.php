@@ -47,7 +47,7 @@ if (
 	!(
 		isset($_POST['name'])    &&
 		isset($_POST['Phone'])   &&
-		isset($_POST['Comment']) &&
+		isset($_POST['Comment'])
 	 )
 ) {
 
