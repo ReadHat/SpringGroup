@@ -53,7 +53,7 @@ if (
 
 	print "<br /><h1>ERROR: Not all form feilds are set server-side. Malformed HTTP POST or other error.</h1>";
 
-	goto: print_footer;	// Don't have time to restructure someone elses code right now... TODO: make a function
+	goto print_footer;	// Don't have time to restructure someone elses code right now... TODO: make a function
 
 }
 
