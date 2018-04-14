@@ -51,20 +51,19 @@ if (
 	 )
 ) {
 
-	print "<br /><h1>ERROR: Not all form feilds are set server-side. Malformed HTTP POST or other error.</h1>";
+	print "<br /><h1 class='f'>ERROR: Not all form feilds are set server-side. Malformed HTTP POST or other error.</h1>";
 
 	goto print_footer;	// Don't have time to restructure someone elses code right now... TODO: make a function
 
 }
 
-# do we use isset here frist?
-
 #CHECKING DATABASE STATUS
 
 if (!$db->getConnStatus()){
 
-	print "<p class='f'>An error has occurred while trying connect to database!</p>\n";
+	print "<br /><p class='f'>An error has occurred while trying connect to database!</p>";
 
+	goto print_footer;
 }
 
 #INSERTTING DATA
@@ -83,11 +82,9 @@ if (empty($_POST['Phone'])){
 
 $safe_comment = $db->dbEsc($_POST['Comment']);
 
+$query_INSERT = "INSERT INTO contactdata VALUES (null, '{$safe_email}', '{$safe_phone}', '{$safe_comment}');";
 
-
-$query_INSERT = "INSERT INTO contactdata (EmailAddress,PhoneNumber,AdditionalComments) " . 
-
-				"VALUES ('{$safe_email}', '{$safe_phone}', '{$safe_comment}')";
+$db->dbCall($query_INSERT); #insert satement
 
 #FINAL RESULTS
 
