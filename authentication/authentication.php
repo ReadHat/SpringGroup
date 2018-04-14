@@ -1,9 +1,6 @@
 <?php
 require_once("../DB/DB.class.php");
 require_once("Template.php");
-require_once("const.php");		// <----- const.php is already included by DB.class.php
-
-#$_SESSION['UsrName'] = $_POST['usr'];
 
 $db = new DB();
 $page = new Template("Spring 2");
@@ -20,33 +17,41 @@ if (!$db->getConnStatus()) {
 $query = "select username, role.rolename, user.userpass from user, user2role, role where user.userid = user2role.userid and user2role.roleid = role.roleid";
 $result = $db->dbCall($query);
 
-#$hash_code = password_hash("123",PASSWORD_DEFAULT);
-#print $hash_code;
-
-#var_dump($result);
+#This part is for checking if the UserName that user typed exists. 
 if(isset($_POST['usr']) && isset($_POST['passwd'])){
-	foreach($result as $self){
-		#print "username: " . $self['username'] . "role:" . $self['rolename'] . "<br>";
-		if ($_POST['usr'] == $self['username']){
-			$hash_code = password_hash($_POST['passwd'],PASSWORD_DEFAULT);
-			#print password_verify($self['userpass'],$hash_code);
-			if (password_verify($self['userpass'],$hash_code)){
-				#echo "loged!";
-				$_SESSION['UsrName'] = $_POST['usr'];
-				$_SESSION['role'] = $self['rolename'];
-			}else{
-				echo "Wrong username or passsword";
+	if (!empty($_POST['usr']) && !empty($_POST['passwd'])){
+		foreach($result as $self){
+			if($_POST['usr'] == $self['username']){
+				$exist = true;
+				$role = $self['rolename'];
+				$hash_code = password_hash($self['userpass'],PASSWORD_DEFAULT); #we might not need this line of code.
+				break;
 			}
 		}
+    }elseif(empty($_POST['usr'])){
+		print "Please type your Username.";
+	}elseif(empty($_POST['passwd'])){
+		print "Please type your Password.";
 	}
-}else{
-	print "post not working!";
 }
-
-if (isset($_SESSION['UsrName']) && isset($_SESSION['role'])){
-	if(!empty($_SESSION['UsrName']) && !empty($_SESSION['role'])){
-		echo "Welcome! ". $_SESSION['UsrName'] . ", you login as " . $_SESSION['role'];
+#This part should check the UserName's password since UserName exists.
+if (isset($exist)){
+	if ($exist == true){
+		#var_dump($hash_code);
+		#var_dump(password_verify($_POST['passwd'], $hash_code));
+		if (password_verify($_POST['passwd'], $hash_code)){
+			$_SESSION['usrname'] = $_POST['usr'];
+			$_SESSION['role'] = $role;
+			$_SESSION['login'] = true;
+			if(isset($_SESSION['usrname']) && isset($_SESSION['role'])){
+				print "Welcome, " . $_SESSION['usrname'] . ", you loged in as " . $_SESSION['role'] . ".";
+			}
+		}else{
+			print "Wrong Username or Password.";
+		}
 	}
+}elseif(!isset($exist) && !empty($_POST['passwd']) && !empty($_POST['usr'])){
+	print "There is wrong Username or password."; #Or There is no such account? 
 }
 print $page->getBottomSection();
 ?>
