@@ -26,21 +26,21 @@ print $page->getTopSection();
 
 print "<br /><header class='nav'>";
 
-print "<br /><h1>Contact Us Results</h1>";
+print "<h1>Contact Us Results</h1>";
 
-print "<br /><ul>";
+print "<ul>";
 
-print "<br /><li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
+print "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
 
-print "<br /><li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>";
+print "<li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>";
 
-print "<br /><li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
+print "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
 
-print "<br /><li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
+print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
 
-print "<br /></ul>";
+print "</ul>";
 
-print "<br /></header>";
+print "</header>";
 
 
 if (
@@ -97,35 +97,35 @@ print_footer:	// Don't have time to restructure someone elses code right now... 
 
 print "<br /><footer>";
 
-print "<br /><p>Home Page</p>";
+print "<p>Home Page</p>";
 
-print "<br /><p> | </p>";
+print "<p> | </p>";
 
-print "<br /><p> Privacy Policy </p>";
+print "<p> Privacy Policy </p>";
 
-print "<br /><p> | </p>";
+print "<p> | </p>";
 
-print "<br /><p> Terms of Service </p>";
+print "<p> Terms of Service </p>";
 
-print "<br /><a href = 'https://www.facebook.com/'>";
+print "<a href = 'https://www.facebook.com/'>";
 
-print "<br /><img src = '../Pictures/facebook.png' alt='facebook'>";
+print "<img src = '../Pictures/facebook.png' alt='facebook'>";
 
-print "<br /></a>";
+print "</a>";
 
-print "<br /><a href = 'https://twitter.com/?lang=en'>";
+print "<a href = 'https://twitter.com/?lang=en'>";
 
-print "<br /><img src = '../Pictures/twitter.png' alt='twitter'>";
+print "<img src = '../Pictures/twitter.png' alt='twitter'>";
 
-print "<br /></a>";
+print "</a>";
 
-print "<br /><a href = 'https://www.instagram.com/?hl=en'>";
+print "<a href = 'https://www.instagram.com/?hl=en'>";
 
-print "<br /><img src = '../Pictures/instagram.png' alt='instagram'>";
+print "<img src = '../Pictures/instagram.png' alt='instagram'>";
 
-print "<br /></a>";
+print "</a>";
 
-print "<br /></footer>";
+print "</footer>";
 
 print $page->getBottomSection();
 
