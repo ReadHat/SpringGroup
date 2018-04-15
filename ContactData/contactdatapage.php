@@ -1,6 +1,6 @@
 <?php
 require_once("../Template/Template.php");
-require_once("../BookSearch/DB.class.php");
+require_once("../DB/DB.class.php");
 
 $db = new DB();
 $page = new Template("Sprint 2");
