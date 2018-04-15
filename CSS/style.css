@@ -179,6 +179,16 @@ footer {
   margin-left: 30%;
   color:white;
 }
+
+.logon {
+	margin-top:35%;
+	margin-left:18%;
+	text-align: center;
+	height: 5%;
+	width: 45%;
+	color:white;
+	font-size:150%;
+}
 img {
 	height: 15px;
 	width: 15px;
