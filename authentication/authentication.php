@@ -1,5 +1,5 @@
 <?php
-require_once("../DB/DB.class.php");
+require_once("DB.class.php");
 require_once("Template.php");
 
 $db = new DB();
@@ -14,18 +14,24 @@ if (!$db->getConnStatus()) {
   exit;
 }
 
-$query = "select username, role.rolename, user.userpass from user, user2role, role where user.userid = user2role.userid and user2role.roleid = role.roleid";
+$query = "select username, role.rolename, user.userpass, user.userstatus from user, user2role, role where user.userid = user2role.userid and user2role.roleid = role.roleid";
 $result = $db->dbCall($query);
+
+$exist = false;
 
 #This part is for checking if the UserName that user typed exists. 
 if(isset($_POST['usr']) && isset($_POST['passwd'])){
 	if (!empty($_POST['usr']) && !empty($_POST['passwd'])){
 		foreach($result as $self){
 			if($_POST['usr'] == $self['username']){
-				$exist = true;
-				$role = $self['rolename'];
-				$hash_code = password_hash($self['userpass'],PASSWORD_DEFAULT); #we might not need this line of code.
-				break;
+				#$self['userstatus'] = 'Nonactive';
+				#print $self['userstatus'];
+				if ($self['userstatus'] == 'Active'){
+					$exist = true;
+					$role = $self['rolename'];
+					$hash_code = password_hash($self['userpass'],PASSWORD_DEFAULT); #we might not need this line of code.
+				}
+				break;	
 			}
 		}
     }elseif(empty($_POST['usr'])){
@@ -49,9 +55,16 @@ if (isset($exist)){
 		}else{
 			print "Wrong Username or Password.";
 		}
+	}elseif ($exist == false && !empty($_POST['usr']) && !empty($_POST['passwd'])){
+		print "The account does not exist.";
 	}
-}elseif(!isset($exist) && !empty($_POST['passwd']) && !empty($_POST['usr'])){
-	print "There is wrong Username or password."; #Or There is no such account? 
 }
+#elseif(!isset($exist) && !empty($_POST['passwd']) && !empty($_POST['usr'])){
+#	if (!isset($non_active)){
+#		print "The account is not active";
+#	}elseif($non_active == false){
+#		print "There is wrong Username or password.";
+#	}
+#}
 print $page->getBottomSection();
 ?>
