@@ -24,7 +24,7 @@ $page->setBottomSection();
 
 print $page->getTopSection();
 
-print "<br /><header class='nav'>";
+print "\n<header class='nav'>";
 
 print "<h1>Contact Us Results</h1>";
 
@@ -88,11 +88,11 @@ $db->dbCall($query_INSERT); #insert satement
 
 #FINAL RESULTS
 
-print "<br /><p class='f'>Thank you for contacting us, someone will get back to you soon</p>";
+print "\n<p class='f'>Thank you for contacting us, someone will get back to you soon</p>";
 
 print_footer:	// Don't have time to restructure someone elses code right now... TODO: make a function
 
-print "<br /><footer>";
+print "\n<footer>";
 
 print "<p>Home Page</p>";
 
