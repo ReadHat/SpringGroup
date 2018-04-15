@@ -1,6 +1,6 @@
 <?php
 require_once("../DB/DB.class.php");
-require_once("Template.php");
+require_once("../Template/Template.php");
 
 $db = new DB();
 $page = new Template("Spring 2");
@@ -19,7 +19,7 @@ $result = $db->dbCall($query);
 
 $exist = false;
 
-#This part is for checking if the UserName that user typed exists. 
+#This part is for checking if the UserName that user typed exists.
 if(isset($_POST['usr']) && isset($_POST['passwd'])){
 	if (!empty($_POST['usr']) && !empty($_POST['passwd'])){
 		foreach($result as $self){
@@ -31,7 +31,7 @@ if(isset($_POST['usr']) && isset($_POST['passwd'])){
 					$role = $self['rolename'];
 					$hash_code = password_hash($self['userpass'],PASSWORD_DEFAULT); #we might not need this line of code.
 				}
-				break;	
+				break;
 			}
 		}
     }elseif(empty($_POST['usr'])){
@@ -59,12 +59,7 @@ if (isset($exist)){
 		print "The account does not exist.";
 	}
 }
-#elseif(!isset($exist) && !empty($_POST['passwd']) && !empty($_POST['usr'])){
-#	if (!isset($non_active)){
-#		print "The account is not active";
-#	}elseif($non_active == false){
-#		print "There is wrong Username or password.";
-#	}
-#}
+
+
 print $page->getBottomSection();
 ?>
