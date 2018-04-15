@@ -11,6 +11,12 @@ $page->setBottomSection();
 
 print $page->getTopSection();
 print "<header class='nav'>";
+print "<div class='location'>";
+print "<div class='l3'>";
+Print "<input type = 'submit' onclick='myFunction()' value='Log On'>";
+Print "<input type = 'submit' onclick='myFunction()' value='Log Off'>";
+print "</div>";
+print "</div>";
 print "<h1>Book Results</h1>\n";
 print "<ul>";
 Print "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
