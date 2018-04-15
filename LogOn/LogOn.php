@@ -23,7 +23,7 @@ print "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a
 Print "</ul>";
 Print "</header>";
 Print "<body>";
-Print "<form class='logon' method='post' action='authentication.php'>";
+Print "<form class='logon' method='post' action='../authentication/authentication.php'>";
 Print "<fieldset>";
 Print "<legend>Log In:</legend>";
 Print "<p><label class='b'> User Name: <input type = 'text' id = 'usr' name = 'usr' required></label></p>";
