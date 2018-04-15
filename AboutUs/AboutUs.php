@@ -21,7 +21,9 @@ print "<ul>";
 Print "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
 print "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
 print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
-print "<li><a href='../ContactData/contactdatapage.php' title='ContactDate'>UserData</a></li>";
+if(isset($_SESSION['usrname']) && isset($_SESSION['role'])){
+	print "<li><a href='../ContactData/ContactDataPage.php' title='Contact Data'>User Data</a></li>";
+}
 print "</ul>";
 print "</header>";
 Print "<p class='f'>Thank you for your buissness. All email request will be handled as soon as possible. Expect a reply within 48 to 72 hours normal buissness hours monday through friday.</p>";
