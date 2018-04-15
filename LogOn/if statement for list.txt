@@ -1,0 +1,3 @@
+if($_SESSION['sessionVariableName'] == true){
+	print "<li><a href='../ContactData/ContactDataPage.php' title='Contact Data'>Contact Data</a></li>"
+}
