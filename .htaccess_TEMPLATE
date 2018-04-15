@@ -1,0 +1,2 @@
+php_value include_path ".:/home/<your-username>/public_html/<path-to-your-site>/includes"
+php_value auto_prepend_file "autoload.php"

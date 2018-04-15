@@ -1,2 +1,0 @@
-php_value include_path ".:/home/ychen799/public_html/Spring_2"
-php_value auto_prepend_file "autoload.php"
