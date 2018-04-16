@@ -42,6 +42,7 @@ print "</ul>";
 
 print "</header>";
 
+#ENSURE FORM FIELDS ARE SET
 
 if (
 	!(
@@ -51,9 +52,30 @@ if (
 	 )
 ) {
 
-	print "<br /><h1 class='f'>ERROR: Not all form feilds are set server-side. Malformed HTTP POST or other error.</h1>";
+	print "\n<h1 class='f'>ERROR: Not all form feilds are set server-side. Malformed HTTP POST or other error.</h1>";
 
 	goto print_footer;	// Don't have time to restructure someone elses code right now... TODO: make a function
+
+}
+
+#ENSURE NECESSARY FIELDS ARE NOT EMPTY
+
+// TODO: find a less shitty name
+$bad_empty = false;
+
+if(empty($_POST['name'])) {
+
+	$bad_empty = true;
+
+	$empty_error_message += "\nEmail field cannot be empty.";
+}
+
+if($bad_empty) {
+
+	print "\n<h1 class='f'>The following fields are required for submission. Please fill them in:</h1>" .
+
+		// TODO: Figure out what class this should be so the CSS works...
+		"\n<p>" . $empty_error_message  . "</p>";
 
 }
 
@@ -61,7 +83,7 @@ if (
 
 if (!$db->getConnStatus()){
 
-	print "<br /><p class='f'>An error has occurred while trying connect to database!</p>";
+	print "\n<p class='f'>An error has occurred while trying connect to database!</p>";
 
 	goto print_footer;
 }
