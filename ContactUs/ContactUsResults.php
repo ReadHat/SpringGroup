@@ -45,11 +45,9 @@ print "</header>";
 #ENSURE FORM FIELDS ARE SET
 
 if (
-	!(
-		isset($_POST['name'])    &&
-		isset($_POST['Phone'])   &&
-		isset($_POST['Comment'])
-	 )
+	!isset($_POST['name'])    ||
+	!isset($_POST['Phone'])   ||
+	!isset($_POST['Comment'])
 ) {
 
 	print "\n<h1 class='f'>ERROR: Not all form feilds are set server-side. Malformed HTTP POST or other error.</h1>";
