@@ -26,7 +26,7 @@ $returnVal .= "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Pag
 $returnVal .= "<li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>\n";
 $returnVal .= "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>\n";
 $returnVal .= "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>\n"; 
-if(isset($_SESSION['usrname']) && in_array($admin, $roles, FALSE)){
+if(isset($_SESSION['usrname']) && in_array('admin', $_SESSION['role'], FALSE)){
 	$returnVal = print "<li><a href='../ContactData/ContactDataPage.php' title='Contact Data'>Contact Data</a></li>\n";
 };
 $returnVal .= "</ul>\n";
