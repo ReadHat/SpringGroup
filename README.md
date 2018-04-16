@@ -19,6 +19,11 @@ This is all you have to do. const.php is configured to pull in your db-creds **a
 
 **NOTE:** The testDBclass.php has also been added to gitignore, so you may also keep that file locally as a reference and it will not track.
 
+### Autoloading php
+
+There is a file included called ".htaccess_TEMPLATE". Make a copy of this in the top directory in your project, name it ".htaccess", and fill in the 
+ marked-up sections according to the state of your filesystem.
+
 ## Backlog:
 
 - [see issues tab](https://github.com/ReadHat/SprintGroup/issues)
