@@ -50,7 +50,7 @@ if (
 	!isset($_POST['Comment'])
 ) {
 
-	print "\n<h1 class='f'>ERROR: Not all form feilds are set server-side. Malformed HTTP POST or other error.</h1>";
+	print "\n<h1 class='f'>ERROR: Not all form fields are set server-side. Malformed HTTP request or other error.</h1>";
 
 	goto print_footer;	// Don't have time to restructure someone elses code right now... TODO: make a function
 
