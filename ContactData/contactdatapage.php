@@ -1,30 +1,20 @@
 <?php
-require_once("../Template/Template.php");
+require_once("../Template/Discover.php");
 require_once("../DB/DB.class.php");
 
 $db = new DB();
 $page = new Template("Sprint 2");
+$page2 = new Discover("User Info");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
 $page->setHeadSection("");
 $page->setTopSection();
 $page->setBottomSection();
+$page2->setNavSection();
+$page2->setFootSection();
+
 
 print $page->getTopSection();
-print "<header class='nav'>";
-print "<div class='location'>";
-print "<div class='l3'>";
-Print "<input type = 'submit' onclick='myFunction()' value='Log On'>";
-Print "<input type = 'submit' onclick='myFunction()' value='Log Off'>";
-print "</div>";
-print "</div>";
-print "<h1>Book Results</h1>\n";
-print "<ul>";
-Print "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
-print "<li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>";
-print "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
-print "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>";
-print "</ul>";
-print "</header>";
+print $page2->getNavSection();
 
 
 if(isset($_POST['usr']) && isset($_POST['passwd'])){
@@ -75,21 +65,6 @@ if(isset($_POST['usr']) && isset($_POST['passwd'])){
 			print "Could Not Display Any Contact Information";
 	}
 }
-print "<footer>";
-print "<p>Home Page</p>";
-print "<p> | </p>";
-print "<p> Privacy Policy </p>";
-print "<p> | </p>";
-print "<p> Terms of Service </p>";
-print "<a href = 'https://www.facebook.com/'>";
-print "<img src = '../Pictures/facebook.png' alt='facebook'>";
-print "</a>";
-print "<a href = 'https://twitter.com/?lang=en'>";
-print "<img src = '../Pictures/twitter.png' alt='twitter'>";
-print "</a>";
-print "<a href = 'https://www.instagram.com/?hl=en'>";
-print "<img src = '../Pictures/instagram.png' alt='instagram'>";
-print "</a>";
-print "</footer>";
+print $page2->getFootSection();
 print $page->getBottomSection();
 ?>

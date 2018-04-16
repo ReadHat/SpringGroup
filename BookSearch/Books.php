@@ -1,30 +1,19 @@
 <?php
-require_once("../Template/Template.php");
+
+require_once("../Template/Discover.php");
 
 $page = new Template("Book Search");
+$page2 = new Discover("Book Search");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
 $page->setHeadSection("<script src='../JavaScript/script1.js'></script>");
 $page->setTopSection();
 $page->setBottomSection();
+$page2->setNavSection();
+$page2->setFootSection();
 
 print $page->getTopSection();
-Print "<header class='nav'>";
-print "<div class='location'>";
-print "<div class='l3'>";
-Print "<a href='../LogOn/LogOn.php' title='Log On'>Log On</a>";
-Print "<a href='../HomePage/HomePage.php' title='Log Off'>Log Off</a>";
-print "</div>";
-print "</div>";
-Print "<h1>Book Search</h1>";
-Print "<ul>";
-Print "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>";
-print "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>";
-Print "<li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>";
-if(isset($_SESSION['usrname']) && isset($_SESSION['role'])){
-	print "<li><a href='../ContactData/ContactDataPage.php' title='Contact Data'>User Data</a></li>";
-}
-Print "</ul>";
-Print "</header>";
+print $page2->getNavSection();
+
 Print "<p class='f'>Thank you for your buissness. All email request will be handled as soon as possible. Expect a reply within 48 to 72 hours normal buissness hours monday through friday.</p>";
 Print "<p class='e'>GET IN TOUCH</p>";
 Print "<p class='i'>Location:</p>";
@@ -39,21 +28,7 @@ Print "<p><label class='b'> Book Inform: <input type = 'text' id = 'myText' name
 Print "<input type = 'submit' onclick='myFunction()'>";
 Print "</fieldset>";
 Print "</form>";
-Print "<footer>";
-Print "<p>Book Search</p>";
-Print "<p> | </p>";
-Print "<p> Privacy Policy </p>";
-Print "<p> | </p>";
-Print "<p> Terms of Service </p>";
-print "<a href = 'https://www.facebook.com/'>";
-print "<img src = '../Pictures/facebook.png' alt='facebook'>";
-print "</a>";
-print "<a href = 'https://twitter.com/?lang=en'>";
-print "<img src = '../Pictures/twitter.png' alt='twitter'>";
-print "</a>";
-print "<a href = 'https://www.instagram.com/?hl=en'>";
-print "<img src = '../Pictures/instagram.png' alt='instagram'>";
-print "</a>";
-Print "</footer>";
+
+print $page2->getFootSection();
 print $page->getBottomSection();
 ?>
