@@ -1,6 +1,9 @@
 <?php
 require_once("../Template/Template.php");
 
+// login status header code
+require_once("../LogOn/LoginStatusHeader.php");
+
 class Discover {
 	private $_nav;
 	private $_foot;
@@ -14,8 +17,7 @@ function setNavSection() {
 $returnVal = "<header class='nav'>\n";
 $returnVal .= "<div class='location'>\n";
 $returnVal .= "<div class='l3'>\n";
-$returnVal .= "<a href='../LogOn/LogOn.php'>Log On</a>\n";
-$returnVal .= "<a href='../HomePage/HomePage.php'>Log Off</a>\n";
+$returnVal .= printLogonStatus();
 $returnVal .= "</div>\n";
 $returnVal .= "</div>\n";
 $returnVal .= "<h1>";

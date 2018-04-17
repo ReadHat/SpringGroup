@@ -14,7 +14,7 @@ if (!$db->getConnStatus()) {
   exit;
 }
 
-$query = "select user.username, user.userpass, role.rolename from user, user2role, role where user.userid = user2role.userid and user2role.roleid = role.roleid and user.username = '{$_POST['usr']}';";
+$query = "select user.username, user.userpass, user.realname, role.rolename from user, user2role, role where user.userid = user2role.userid and user2role.roleid = role.roleid and user.username = '{$_POST['usr']}';";
 $result = $db->dbCall($query);
 
 $exist = false;
