@@ -26,7 +26,7 @@ if(isset($_POST['usr']) && isset($_POST['passwd'])){
 		foreach($result as $self){
 			if($_POST['usr'] == $self['username']){
 				$exist = true;
-				$role[] += $self['rolename'];
+				$role[] .= $self['rolename'];
 				$realname = $self['realname'];
 				$password = $self['userpass'];
 			}
