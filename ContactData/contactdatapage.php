@@ -16,20 +16,18 @@ $page2->setFootSection();
 print $page->getTopSection();
 print $page2->getNavSection();
 
-
-if(isset($_POST['usr']) && isset($_POST['passwd'])){
-	if (!empty($_POST['usr']) && !empty($_POST['passwd'])){
-		
-	$db = new DB();
-		
-	if (!$db->getConnStatus()){
-	print "<p class='f'>An error has occurred while trying connect to database!</p>\n";
-	}
-	$query = "select username, userpass, email, creationdate, realname, userstatus, rolename
+$query = "select username, userpass, email, creationdate, realname, userstatus, rolename
 		from user, user2role, role
 		where user.userid = user2role.userid
 		and user2role.roleid = role.roleid";
-	$result = $db->dbCall($query);	
+$result = $db->dbCall($query);
+	
+if (!$db->getConnStatus()){
+	print "<p class='f'>An error has occurred while trying connect to database!</p>\n";
+	}
+
+if(isset($_SESSION['usrname']) && in_array('admin', $_SESSION['role'], FALSE)){
+
 ?>
 
 <div id="main-table">
@@ -64,7 +62,6 @@ if(isset($_POST['usr']) && isset($_POST['passwd'])){
 	}else{
 			print "Could Not Display Any Contact Information";
 	}
-}
 print $page2->getFootSection();
 print $page->getBottomSection();
 ?>
