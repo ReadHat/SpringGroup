@@ -27,6 +27,7 @@ if(isset($_POST['usr']) && isset($_POST['passwd'])){
 			if($_POST['usr'] == $self['username']){
 				$exist = true;
 				$role[] += $self['rolename'];
+				$realname = $self['realname'];
 				$password = $self['userpass'];
 			}
 		}
@@ -43,6 +44,7 @@ if (isset($exist)){
 			$_SESSION['usrname'] = $_POST['usr'];
 			$_SESSION['role'] = $role;
 			$_SESSION['login'] = true;
+			$_SESSION['realname'] = $realname;
 			if(isset($_SESSION['usrname']) && isset($_SESSION['role'])){
 				header("Location: ../HomePage/HomePage.php");
 			}

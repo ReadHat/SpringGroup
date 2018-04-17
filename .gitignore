@@ -6,3 +6,6 @@
 #+but don't want it on the site
 #+(since it serves no function anyway.)
 *testDBclass.php
+
+# Local apache config
+*.htaccess
