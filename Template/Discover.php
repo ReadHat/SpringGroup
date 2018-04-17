@@ -1,5 +1,5 @@
 <?php
-require_once("../Template/Template.php");
+require_once("./Template.php");
 
 class Discover {
 	private $_nav;
