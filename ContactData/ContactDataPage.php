@@ -20,7 +20,7 @@ $query = "select username, userpass, email, creationdate, realname, userstatus, 
 		from user, user2role, role
 		where user.userid = user2role.userid
 		and user2role.roleid = role.roleid";
-$result = $db->dbCall($query);
+$results = $db->dbCall($query);
 	
 if (!$db->getConnStatus()){
 	print "<p class='f'>An error has occurred while trying connect to database!</p>\n";
