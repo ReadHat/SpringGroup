@@ -22,7 +22,8 @@ Print "<p class='g'>Rodriguez, Derek</p>";
 Print "<p class='h'>The guy next to the big guy</p>";
 Print "<p class='g'>Chen, Yiwen</p>";
 Print "<p class='h'>The guy next to the guy, next to the big guy</p>";
-print "<footer>";
+Print "<p class='g'>Kolodzik, Joseph</p>";
+Print "<p class='h'>The New Guy</p>";
 
 print $page2->getFootSection();
 print $page->getBottomSection();
