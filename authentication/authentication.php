@@ -1,16 +1,24 @@
 <?php
 require_once("../DB/DB.class.php");
-require_once("../Template/Template.php");
+require_once("../Template/Discover.php");
 
 $db = new DB();
-$page = new Template("Spring 2");
-$page->setHeadSection("");
+$page = new Template("Authentication Results");
+$page2 = new Discover("Authentication Results");
+$page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
+$page->setHeadSection("<script src='../JavaScript/script1.js'></script>");
 $page->setTopSection();
 $page->setBottomSection();
+$page2->setNavSection();
+$page2->setFootSection();
+
 print $page->getTopSection();
+print $page2->getNavSection();
 
 if (!$db->getConnStatus()) {
+print "<p class='f'>";
   print "An error has occurred with DB connection\n";
+print "</p>";
   exit;
 }
 
@@ -32,9 +40,13 @@ if(isset($_POST['usr']) && isset($_POST['passwd'])){
 			}
 		}
     }elseif(empty($_POST['usr'])){
+		print "<p class='f'>";
 		print "Please type your Username.";
+		print "</p>";
 	}elseif(empty($_POST['passwd'])){
+		print "<p class='f'>";
 		print "Please type your Password.";
+		print "</p>";
 	}
 }
 #This part should check the UserName's password since UserName exists.
@@ -49,11 +61,14 @@ if (isset($exist)){
 				header("Location: ../HomePage/HomePage.php");
 			}
 		}else{
+			print "<p class='f'>";
 			print "Wrong Username or Password.";
+			print "</p>";
 		}
 	}
 }
 
 
+print $page2->getFootSection();
 print $page->getBottomSection();
 ?>
