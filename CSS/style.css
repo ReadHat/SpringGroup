@@ -26,6 +26,12 @@ td {
 div table {
 	background:red;
 	margin:auto;
+	margin-top:15%;
+	text-align: center;
+	height: 5%;
+	width: 45%;
+	color:white;
+	font-size:50%;
 }
 .location {
 	float: right;

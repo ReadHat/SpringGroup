@@ -30,12 +30,11 @@ if(isset($_SESSION['usrname']) && in_array('admin', $_SESSION['role'], FALSE)){
 
 ?>
 
-<div id="main-table">
+<div>
 	<table>
 	<tr>
 		<th>ID</th>
 		<th>User Name</th>
-		<th>Book Title</th>
 		<th>Email</th>
 		<th>Created On</th>
 		<th>Real Name</th>
