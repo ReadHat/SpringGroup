@@ -28,7 +28,7 @@ $returnVal .= "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Conta
 $returnVal .= "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>\n"; 
 if(isset($_SESSION['usrname']) && in_array('admin', $_SESSION['role'], FALSE)){
 	$returnVal .= "<li><a href='../ContactData/ContactDataPage.php' title='Contact Data'>Contact Data</a></li>\n";
-};
+}
 $returnVal .= "</ul>\n";
 $returnVal .= "</header>\n";
 
