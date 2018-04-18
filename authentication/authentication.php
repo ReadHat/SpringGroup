@@ -65,6 +65,10 @@ if (isset($exist)){
 			print "Wrong Username or Password.";
 			print "</p>";
 		}
+	}else{
+		print "<p class='f'>";
+		print "Wrong Username or Password.";
+		print "</p>";
 	}
 }
 
