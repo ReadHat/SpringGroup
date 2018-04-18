@@ -4,7 +4,7 @@ require_once("../DB/DB.class.php");
 
 $db = new DB();
 $page = new Template("Sprint 2");
-$page2 = new Discover("User Info");
+$page2 = new Discover("Contact Info");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
 $page->setHeadSection("");
 $page->setTopSection();
