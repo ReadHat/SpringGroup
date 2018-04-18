@@ -16,7 +16,7 @@ $page2->setFootSection();
 print $page->getTopSection();
 print $page2->getNavSection();
 
-$query = "SELECT * FROM landrath_s.contactdata";
+$query = "SELECT * FROM contactdata";
 
 $results = $db->dbCall($query);
 	
