@@ -32,24 +32,14 @@ if (
 
 #ENSURE NECESSARY FIELDS ARE NOT EMPTY
 
-// TODO: find a less shitty name
-$bad_empty = false;
+if($_POST['name']) {
 
-if(empty($_POST['name'])) {
+	print "\n<div class='f'>" .
+			"\n<h1>The following fields are required for submission. Please fill them in:</h1>" .
+			"\n<p>Email field</p>".
+		"\n</div>";
 
-	$bad_empty = true;
-
-	$empty_error_message = "\nEmail field";
-}
-
-// Wrote it this way in case more fields need to be checked
-if($bad_empty) {
-
-	print "\n<div class='f'><h1>The following fields are required for submission. Please fill them in:</h1>" .
-			"\n<p>" . $empty_error_message  . "</p>".
-		"</div>";
-
-		printBottomAndQuit($page, $page2);
+	printBottomAndQuit($page, $page2);
 
 }
 
