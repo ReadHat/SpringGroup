@@ -15,6 +15,7 @@ $page2->setFootSection();
 
 print $page->getTopSection();
 print $page2->getNavSection();
+
 #ENSURE FORM FIELDS ARE SET
 
 if (
@@ -25,7 +26,7 @@ if (
 
 	print "\n<h1 class='f'>ERROR: Not all form fields are set server-side. Malformed HTTP request or other error.</h1>";
 
-	goto print_footer;	// Don't have time to restructure someone elses code right now... TODO: make a function
+	printBottomAndQuit($page, $page2);
 
 }
 
@@ -38,15 +39,17 @@ if(empty($_POST['name'])) {
 
 	$bad_empty = true;
 
-	$empty_error_message += "\nEmail field cannot be empty.";
+	$empty_error_message = "\nEmail field";
 }
 
+// Wrote it this way in case more fields need to be checked
 if($bad_empty) {
 
-	print "\n<h1 class='f'>The following fields are required for submission. Please fill them in:</h1>" .
+	print "\n<div class='f'><h1>The following fields are required for submission. Please fill them in:</h1>" .
+			"\n<p>" . $empty_error_message  . "</p>".
+		"</div>";
 
-		// TODO: Figure out what class this should be so the CSS works...
-		"\n<p>" . $empty_error_message  . "</p>";
+		printBottomAndQuit($page, $page2);
 
 }
 
@@ -56,7 +59,7 @@ if (!$db->getConnStatus()){
 
 	print "\n<p class='f'>An error has occurred while trying connect to database!</p>";
 
-	goto print_footer;
+	printBottomAndQuit($page, $page2);
 }
 
 #INSERTTING DATA
@@ -83,8 +86,24 @@ $db->dbCall($query_INSERT); #insert satement
 
 print "\n<p class='f'>Thank you for contacting us, someone will get back to you soon</p>";
 
-print_footer:	// Don't have time to restructure someone elses code right now... TODO: make a function
-
 print $page2->getFootSection();
 print $page->getBottomSection();
+?>
+
+<?php
+	// Locally defined functions
+
+	/*---------------------------------------------------
+	-- declared this instead of using a goto...        --
+	-- probably should have just left them in,         --
+	++ or have the template designer restructure their --
+	++ code......                                      --
+	---------------------------------------------------*/
+	function printBottomAndQuit($page, $page2)
+	{
+		print $page2->getFootSection();
+	        print $page->getBottomSection();
+        	exit;
+
+	}
 ?>
