@@ -24,7 +24,6 @@ print "</p>";
 
 $safe_usr = $db->dbEsc($_POST['usr']);
 $query = "select user.username, user.userpass, user.realname, role.rolename from user, user2role, role where user.userid = user2role.userid and user2role.roleid = role.roleid and user.username = '{$safe_usr}';";
-$result = $db->dbCall($query);
 
 
 $exist = false;
@@ -33,6 +32,7 @@ $role = array();
 #This part is for checking if the UserName that user typed exists.
 if(isset($_POST['usr']) && isset($_POST['passwd'])){
 	if (!empty($_POST['usr']) && !empty($_POST['passwd'])){
+		$result = $db->dbCall($query);
 		foreach($result as $self){
 			if($_POST['usr'] == $self['username']){
 				$exist = true;
