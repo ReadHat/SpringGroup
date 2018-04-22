@@ -50,6 +50,10 @@ if(isset($_POST['usr']) && isset($_POST['passwd'])){
 		print "Please type your Password.";
 		print "</p>";
 	}
+}else{
+	print "<p class='f'>";
+	print "You must need to login before accessing this web page.";
+	print "</p>";
 }
 #This part should check the UserName's password since UserName exists.
 if (isset($exist)){
