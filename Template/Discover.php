@@ -1,10 +1,10 @@
 <?php
-require_once("../Template/Template.php");
+require_once("Template.php");
 
 // login status header code
 require_once("../LogOn/LoginStatusHeader.php");
 
-class Discover {
+class Discover extends Template {
 	private $_nav;
 	private $_foot;
 	private $_title;

@@ -2,17 +2,16 @@
 require_once("../Template/Discover.php");
 require_once("../BookSearch/BookSearch.php");
 
-$page = new Template("Book Results");
-$page2 = new Discover("Book Search Results");
+$page = new Discover("Book Search Results");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
 $page->setHeadSection("<script src='../JavaScript/script1.js'></script>");
 $page->setTopSection();
 $page->setBottomSection();
-$page2->setNavSection();
-$page2->setFootSection();
+$page->setNavSection();
+$page->setFootSection();
 
 print $page->getTopSection();
-print $page2->getNavSection();
+print $page->getNavSection();
 
 if (isset($_POST['bookinfo'])){
 	
@@ -56,6 +55,6 @@ print "</p>";
 	print "The book was not located";
 }
 }
-print $page2->getFootSection();
+print $page->getFootSection();
 print $page->getBottomSection();
 ?>

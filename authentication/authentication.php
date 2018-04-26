@@ -3,17 +3,15 @@ require_once("../DB/DB.class.php");
 require_once("../Template/Discover.php");
 
 $db = new DB();
-$page = new Template("Authentication Results");
-$page2 = new Discover("Authentication Results");
+$page = new Discover("Authentication Results");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
-$page->setHeadSection("<script src='../JavaScript/script1.js'></script>");
 $page->setTopSection();
 $page->setBottomSection();
-$page2->setNavSection();
-$page2->setFootSection();
+$page->setNavSection();
+$page->setFootSection();
 
 print $page->getTopSection();
-print $page2->getNavSection();
+print $page->getNavSection();
 
 if (!$db->getConnStatus()) {
 print "<p class='f'>";
@@ -79,6 +77,6 @@ if (isset($exist)){
 }
 
 
-print $page2->getFootSection();
+print $page->getFootSection();
 print $page->getBottomSection();
 ?>

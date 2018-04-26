@@ -2,17 +2,15 @@
 
 require_once("../Template/Discover.php");
 
-$page = new Template("AboutUs");
-$page2 = new Discover("About Us");
+$page = new Discover("About Us");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
-$page->setHeadSection("<script src='../JavaScript/script1.js'></script>");
 $page->setTopSection();
 $page->setBottomSection();
-$page2->setNavSection();
-$page2->setFootSection();
+$page->setNavSection();
+$page->setFootSection();
 
 print $page->getTopSection();
-print $page2->getNavSection();
+print $page->getNavSection();
 
 Print "<p class='f'>Thank you for your buissness. All email request will be handled as soon as possible. Expect a reply within 48 to 72 hours normal buissness hours monday through friday.</p>";
 Print "<p class='e'>Contacts</p>";
@@ -25,6 +23,6 @@ Print "<p class='h'>The guy next to the guy, next to the big guy</p>";
 Print "<p class='g'>Kolodzik, Joseph</p>";
 Print "<p class='h'>The New Guy</p>";
 
-print $page2->getFootSection();
+print $page->getFootSection();
 print $page->getBottomSection();
 ?>

@@ -5,18 +5,16 @@ require_once("../Template/Discover.php");
 require_once("../DB/DB.class.php");
 
 $db = new DB();
-$page = new Template("Sprint 2");
-$page2 = new Discover("Contact Info");
+$page = new Discover("Contact Info");
 $page->setHeadSection("<link rel='stylesheet' href='../CSS/style.css'>");
-$page->setHeadSection("");
 $page->setTopSection();
 $page->setBottomSection();
-$page2->setNavSection();
-$page2->setFootSection();
+$page->setNavSection();
+$page->setFootSection();
 
 
 print $page->getTopSection();
-print $page2->getNavSection();
+print $page->getNavSection();
 
 
 
@@ -55,7 +53,7 @@ if (!$db->getConnStatus()){
 </div>
 <?php
 	
-print $page2->getFootSection();
+print $page->getFootSection();
 print $page->getBottomSection();
 
 	}else{
@@ -66,7 +64,7 @@ print $page->getBottomSection();
   <title>404</title>
 </head>
   <body>
-    <h1>404 Access Denied !!</h1>
+    <h1>404 Web Page Cannot Be Located !!</h1>
   </body>
 <footer>
 </footer>
