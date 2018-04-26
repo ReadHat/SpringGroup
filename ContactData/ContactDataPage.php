@@ -1,6 +1,5 @@
 <?php
-if(isset($_SESSION['usrname']) && in_array('admin', $_SESSION['role'], FALSE)){
-	if (!empty($_POST['usr']) && !empty($_POST['passwd'])){
+if(isset($_SESSION['usrname']) && in_array('admin', $_SESSION['role'], TRUE)){
 		
 require_once("../Template/Discover.php");
 require_once("../DB/DB.class.php");
@@ -61,17 +60,19 @@ print $page->getBottomSection();
 
 	}else{
 ?>
+
 <html>
+<head>
   <title>404</title>
+</head>
   <body>
     <h1>404 Access Denied !!</h1>
   </body>
+<footer>
+</footer>
 </html>
 
 <?php
-	}
+}
 
-}else{
-			print "Session Has not been set";
-	}
 ?>
