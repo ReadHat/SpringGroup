@@ -57,20 +57,7 @@ print $page->getFootSection();
 print $page->getBottomSection();
 
 	}else{
-?>
-
-<html>
-<head>
-  <title>404</title>
-</head>
-  <body>
-    <h1>404 Web Page Cannot Be Located !!</h1>
-  </body>
-<footer>
-</footer>
-</html>
-
-<?php
+	header('HTTP/1.1 404 Not Found', true, 404);
+    exit();
 }
-
 ?>
