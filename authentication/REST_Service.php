@@ -3,7 +3,7 @@
 require_once("../DB/DB.class.php");
 
 if(isset($_POST['data'])){
-	$db = new DB(); #??????could I place the code here?
+	$db = new DB();
 	$data = $_POST['data']; #Get data from json
     $obj = json_decode($data, true); #Decode to be array from data.
     $safe_usr = $db->dbEsc($obj['usrname']);
@@ -14,7 +14,7 @@ if(isset($_POST['data'])){
 }
 
 if (!$db->getConnStatus()) {
-	print json_encode("DB-error");
+	print json_encode("DB-error"); #indicate not connected with database.
 	exit;
 }else{
     $result = $db->dbCall($query);
