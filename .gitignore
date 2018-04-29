@@ -9,3 +9,6 @@
 
 # Local apache config
 *.htaccess
+
+# Lock files for file editing mutex
+*.swp
