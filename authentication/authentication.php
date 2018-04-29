@@ -44,6 +44,21 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 		$sumObject = json_decode($return,true);
 		curl_close($ch);
 
+	}elseif(empty($_POST['usr']) && !empty($_POST['passwd'])){
+		print "<p class='f'>";
+		print "Please type your username.\n";
+		print "</p>";
+		exit;
+	}elseif(empty($_POST['passwd']) && !empty($_POST['usr'])){
+		print "<p class='f'>";
+		print "Please type your password.\n";
+		print "</p>";
+		exit;
+	}else{
+		print "<p class='f'>";
+		print "Please type both of your username and your password.\n";
+		print "</p>";
+		exit;
 	}
 }else{
 	print "<p class='f'>";
@@ -55,7 +70,15 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 #Print error message when POST not working(cannot send to the Data.php), and exit.
 if ($sumObject == "No-data"){
 	print "<p class='f'>";
-	print "ERROR: cannot send json to server\n";
+	print "ERROR: cannot send json to server.\n";
+	print "</p>";
+	exit;
+}
+
+#Print error message when connected to database failed.
+if ($sumObject == "DB-error"){
+	print "<p class='f'>";
+	print "ERROR: cannot connected to database.\n";
 	print "</p>";
 	exit;
 }
