@@ -41,8 +41,16 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 		curl_setopt($ch,CURLOPT_URL, $url);
 
 		$return = curl_exec($ch);
-		$sumObject = json_decode($return,true);
-		curl_close($ch);
+
+		if ($return == "false"){
+			print "<p class='f'>";
+			print "Could not connect to the authentication server.\n";
+			print "</p>";
+			exit;
+		}else{
+			$sumObject = json_decode($return,true);
+			curl_close($ch);
+		}
 
 	}elseif(empty($_POST['usr']) && !empty($_POST['passwd'])){
 		print "<p class='f'>";
