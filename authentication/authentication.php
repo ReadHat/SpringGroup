@@ -24,8 +24,8 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 			'Content-Length: ' . $contentLength
 		);
 
-		#If you need to use my code plz change ur path that points to Data.php
-		$url = "http://cnmtsrv2.uwsp.edu/~<user-xxx>/path/to/Data.php";
+		#If you need to use my code plz change ur path that points to REST_Service.php
+		$url = "http://cnmtsrv2.uwsp.edu/~<user-xxx>/path/to/REST_Service.php";
 		#---------------------------------------------------------------------
 
 		$ch = curl_init();
@@ -42,6 +42,7 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 
 		$return = curl_exec($ch);
 
+		#This is checking if $url has correct path that points to REST_Service.php
 		if ($return == false){
 			print "<p class='f'>";
 			print "Could not connect to the authentication server.\n";
