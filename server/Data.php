@@ -14,7 +14,7 @@ if(isset($_POST['data'])){
 }
 
 if (!$db->getConnStatus()) {
-	print json_encode("An error has occurred with DB connection\n");
+	print json_encode("DB-error");
 	exit;
 }else{
     $result = $db->dbCall($query);
