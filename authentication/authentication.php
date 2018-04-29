@@ -44,16 +44,6 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 		$sumObject = json_decode($return,true);
 		curl_close($ch);
 
-	}elseif(empty($_POST['usr'])){
-		print "<p class='f'>";
-		print "Please type your Username.\n";
-		print "</p>";
-		exit;
-	}elseif(empty($_POST['passwd'])){
-		print "<p class='f'>";
-		print "Please type your Password.\n";
-		print "</p>";
-		exit;
 	}
 }else{
 	print "<p class='f'>";
