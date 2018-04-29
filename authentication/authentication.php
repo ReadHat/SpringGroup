@@ -25,9 +25,9 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 		);
 
 		#If you need to use my code plz change ur path that points to Data.php
-		$url = "http://cnmtsrv2.uwsp.edu/~ychen799/SprintGroup/Server/Data.php"; 
+		$url = "http://cnmtsrv2.uwsp.edu/~ychen799/SprintGroup/Server/Data.php";
 		#---------------------------------------------------------------------
-		
+
 		$ch = curl_init();
 
 		curl_setopt($ch,
@@ -36,14 +36,14 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 			CURLOPT_POSTFIELDS, $postString);
 		curl_setopt($ch,
 			CURLOPT_HTTPHEADER, $header);
-	
+
 		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch,CURLOPT_URL, $url);
 
 		$return = curl_exec($ch);
 		$sumObject = json_decode($return,true);
 		curl_close($ch);
-		
+
 	}elseif(empty($_POST['usr'])){
 		print "<p class='f'>";
 		print "Please type your Username.\n";
@@ -92,7 +92,7 @@ if (isset($password)){
         $_SESSION['usrname'] = $username;
 		$_SESSION['role'] = $role;
 		$_SESSION['login'] = true;
-        $_SESSION['realname'] = $realname;       
+        $_SESSION['realname'] = $realname;
         header("Location: ../HomePage/HomePage.php");
     }else{
 		print "<p class='f'>";
