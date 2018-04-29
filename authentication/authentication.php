@@ -25,7 +25,7 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 		);
 
 		#If you need to use my code plz change ur path that points to Data.php
-		$url = "http://cnmtsrv2.uwsp.edu/~ychen799/SprintGroup/Server/Data.php";
+		$url = "http://cnmtsrv2.uwsp.edu/~<user-xxx>/path/to/Data.php";
 		#---------------------------------------------------------------------
 
 		$ch = curl_init();
