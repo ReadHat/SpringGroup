@@ -50,6 +50,7 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 			exit;
 		}
 
+		#Handle non-200 responses (like 404) where no JSON data is returned
 		if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200){
 			print "<p class='f'>";
 			print "Unacceptable HTTP response from authentication server.\n";
