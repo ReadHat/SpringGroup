@@ -42,7 +42,7 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 
 		$return = curl_exec($ch);
 
-		if ($return == "false"){
+		if ($return == false){
 			print "<p class='f'>";
 			print "Could not connect to the authentication server.\n";
 			print "</p>";
