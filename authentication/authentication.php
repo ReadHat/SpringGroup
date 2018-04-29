@@ -48,8 +48,16 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 			print "</p>";
 			exit;
 		}
-		$sumObject = json_decode($return,true);
+
+		if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200){
+			print "<p class='f'>";
+			print "Unacceptable HTTP response from authentication server.\n";
+			print "</p>";
+			exit;
+		}
+
 		curl_close($ch);
+		$sumObject = json_decode($return,true);
 
 	}elseif(empty($_POST['usr']) && !empty($_POST['passwd'])){
 		print "<p class='f'>";
