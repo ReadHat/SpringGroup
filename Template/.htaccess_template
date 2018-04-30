@@ -1,0 +1,6 @@
+#disables directory browsing
+#TODO: possibly make this a 404
+Options -Indexes
+
+php_value include_path ".:/home/<username>/public_html/<path>/<to>/includes"
+php_value auto_prepend_file "autoload.php"
