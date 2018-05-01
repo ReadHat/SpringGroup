@@ -82,17 +82,14 @@ print $page->getBottomSection();
 <?php
 	// Locally defined functions
 
-	/*---------------------------------------------------
-	-- declared this instead of using a goto...        --
-	-- probably should have just left them in,         --
-	++ or have the template designer restructure their --
-	++ code......                                      --
-	---------------------------------------------------*/
+	/*===================================================
+	== prints bottom of html page and stops execution  ==
+	===================================================*/
+
 	function printBottomAndQuit($page)
 	{
 		print $page->getFootSection();
 	        print $page->getBottomSection();
         	exit;
-
 	}
 ?>
