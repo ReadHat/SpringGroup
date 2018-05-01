@@ -59,18 +59,7 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 		}
 
 		curl_close($ch);
-		$sumObject = json_decode($return,true);
-
-	}elseif(empty($_POST['usr']) && !empty($_POST['passwd'])){
-		print "<p class='f'>";
-		print "Please type your username.\n";
-		print "</p>";
-		exit;
-	}elseif(empty($_POST['passwd']) && !empty($_POST['usr'])){
-		print "<p class='f'>";
-		print "Please type your password.\n";
-		print "</p>";
-		exit;
+		$someObject = json_decode($return,true);
 	}else{
 		print "<p class='f'>";
 		print "Please type both of your username and your password.\n";
@@ -79,13 +68,13 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 	}
 }else{
 	print "<p class='f'>";
-    print "You must need to login before accessing this web page.\n"; #this will be returned when user type the path of authentication.php into browser.
+	print "You need to login before accessing this web page.\n"; #this will be returned when user type the path of authentication.php into browser.
 	print "</p>";
 	exit;
 }
 
 #Print error message when POST not working(cannot send to the Data.php), and exit.
-if ($sumObject == "No-data"){
+if ($someObject == "No-data"){
 	print "<p class='f'>";
 	print "ERROR: cannot send json to server.\n";
 	print "</p>";
@@ -93,7 +82,7 @@ if ($sumObject == "No-data"){
 }
 
 #Print error message when connected to database failed.
-if ($sumObject == "DB-error"){
+if ($someObject == "DB-error"){
 	print "<p class='f'>";
 	print "ERROR: cannot connected to database.\n";
 	print "</p>";
@@ -101,35 +90,26 @@ if ($sumObject == "DB-error"){
 }
 
 #Get informations and store those informations.
-if ($sumObject != "Null"){
-    $role = array();
-	foreach($sumObject as $self){
-		$role[] .= $self['rolename'];
-		$realname = $self['realname'];
-		$password = $self['userpass'];
-		$username = $self['username'];
-	}
-}else{
+if ($someObject == "Null"){
 	print "<p class='f'>";
-    print "Wrong Username or Password.\n";
+	print "Wrong Username or Password.\n";
 	print "</p>";
-    exit;
+	exit;
 }
 
-#Check if the username's password is right.
-if (isset($password)){
-    if (password_verify($_POST['passwd'], $password)){
-        $_SESSION['usrname'] = $username;
-		$_SESSION['role'] = $role;
-		$_SESSION['login'] = true;
-        $_SESSION['realname'] = $realname;
-        header("Location: ../HomePage/HomePage.php");
-    }else{
-		print "<p class='f'>";
-        print "Wrong Username or Password.\n";
-		print "</p>";
-        exit;
-    }
+if (!empty($someObject)){
+	$_SESSION['usrname'] = $someObject['usrname'];
+	$_SESSION['role'] = $someObject['role'];
+       	$_SESSION['realname'] = $someObject['realname'];
+
+	$_SESSION['login'] = true;
+
+       	header("Location: ../HomePage/HomePage.php");
+}else{
+	print "<p class='f'>";
+	print "Unknown Error\n";
+	print "</p>";
+	exit;
 }
 
 print $page->getFootSection();
