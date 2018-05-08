@@ -31,7 +31,7 @@ if (
 
 #ENSURE NECESSARY FIELDS ARE NOT EMPTY
 
-if($_POST['name']) {
+if(empty($_POST['name'])) {
 
 	print "\n<div class='f'>" .
 			"\n<h1>The following fields are required for submission. Please fill them in:</h1>" .
@@ -82,17 +82,14 @@ print $page->getBottomSection();
 <?php
 	// Locally defined functions
 
-	/*---------------------------------------------------
-	-- declared this instead of using a goto...        --
-	-- probably should have just left them in,         --
-	++ or have the template designer restructure their --
-	++ code......                                      --
-	---------------------------------------------------*/
+	/*===================================================
+	== prints bottom of html page and stops execution  ==
+	===================================================*/
+
 	function printBottomAndQuit($page)
 	{
 		print $page->getFootSection();
 	        print $page->getBottomSection();
         	exit;
-
 	}
 ?>
