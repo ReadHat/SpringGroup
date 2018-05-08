@@ -9,6 +9,6 @@
 //+it to be safe
 session_destroy();
 
-header('Location: ../HomePage/HomePage.php');
+header('Location: ../HomePage/index.php');
 
 ?>

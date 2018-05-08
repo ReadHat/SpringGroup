@@ -24,7 +24,7 @@ $returnVal .= "<h1>";
 $returnVal .= $this->_title;
 $returnVal .= "</h1>\n";
 $returnVal .= "<ul>\n";
-$returnVal .= "<li><a href='../HomePage/HomePage.php' title='Home Page'>Home Page</a></li>\n";
+$returnVal .= "<li><a href='../HomePage/index.php' title='Home Page'>Home Page</a></li>\n";
 $returnVal .= "<li><a href='../AboutUs/AboutUs.php' title='About Us'>About US</a></li>\n";
 $returnVal .= "<li><a href='../ContactUs/ContactUs.php' title='Contact Us'>Contact Us</a></li>\n";
 $returnVal .= "<li><a href='../BookSearch/Books.php' title='Book Search'>Book Search</a></li>\n"; 

@@ -104,7 +104,7 @@ if (!empty($someObject)){
 
 	$_SESSION['login'] = true;
 
-       	header("Location: ../HomePage/HomePage.php");
+       	header("Location: ../HomePage/index.php");
 }else{
 	print "<p class='f'>";
 	print "Unknown Error\n";
