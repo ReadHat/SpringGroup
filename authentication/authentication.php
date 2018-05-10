@@ -25,7 +25,7 @@ if (isset($_POST['usr']) && isset($_POST['passwd'])){
 		);
 
 		#If you need to use my code plz change ur path that points to REST_Service.php
-		$url = "http://cnmtsrv2.uwsp.edu/~sland477/SprintGroup/authentication/REST_Service.php";
+		$url = "http://cnmtsrv2.uwsp.edu/~<user>/path/to/REST_Service.php";
 		#---------------------------------------------------------------------
 
 		$ch = curl_init();
@@ -104,7 +104,7 @@ if (!empty($someObject)){
 
 	$_SESSION['login'] = true;
 
-       	header("Location: ../HomePage/index.php");
+	header("Location: ../HomePage/index.php");
 }else{
 	print "<p class='f'>";
 	print "Unknown Error\n";
